@@ -1,0 +1,6 @@
+# Bourbon-Neat-for-Mixture.io
+# https://github.com/alonalon/Bourbon-Neat-for-Mixture.io
+# @author Aron Hafner
+
+# Ignore other unneeded files.
+.DS_Store

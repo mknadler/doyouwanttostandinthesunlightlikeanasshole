@@ -1,0 +1,25 @@
+// Import Bourbon & Neat
+@import "bourbon/bourbon"; // or "bourbon" when in Rails
+@import "neat/neat"; // or "neat" when in Rails
+
+// Import modules
+@import "modules/reset";
+@import "modules/colors";
+@import "modules/all";
+@import "modules/breakpoints";
+@import "modules/typography";
+@import "modules/mirismixins";
+
+// Import Partials
+@import "partials/shame";
+
+
+
+
+
+/** Notes
+
+Bourbon have a clearfix in bourbon/addons. just use @include clearfix;
+
+**/
+
