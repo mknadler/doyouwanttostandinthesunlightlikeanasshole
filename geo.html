@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="assets/stylesheets/css/master.css">
 
         <script src="assets/js/modernizr.min.js"></script>
+        <script src="assets/js/suncalc.js"></script>
     </head>
     <body>
         <div class="wrapper">
@@ -20,8 +21,22 @@
             <div class="time-container">
                 <p>You have <span class="thetime">[time]</span> left.</p>
             </div>
-            <p id="demo"></p>
-            <button onclick="getLocation()">Click</button>
+            <br>
+
+
+             <p id="demo">Click to display coordinates.</p>
+             <button onclick="getLocation()">Try it</button>
+
+             <p id="sunset">Click to get sunset time.</p>
+             <button onclick="showSunset()">Sunset</button>
+
+            
+
+        </div>
+
+        <div id="lat">
+
+
 
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -30,22 +45,51 @@
         <script src="assets/js/app.js"></script>
 
         <!--geo location-->
+       
+    
         <script>
-        var x = document.getElementById("demo");
+        var x=document.getElementById("demo");
         function getLocation()
           {
           if (navigator.geolocation)
             {
             navigator.geolocation.getCurrentPosition(showPosition);
             }
-          else{x.innerHTML = "Geolocation is not supported by this browser.";}
+          else{x.innerHTML="Geolocation is not supported by this browser.";}
           }
         function showPosition(position)
           {
-          x.innerHTML = "Latitude: " + position.coords.latitude + 
-          "<br>Longitude: " + position.coords.longitude; 
+          x.innerHTML="Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;    
+          
           }
+          </script>
+        
+        <script>         
+
+          function showSunset()
+
+          {
+            var z=document.getElementById("lat");
+            var la = position.coords.latitude;
+            z.innerHTML=la
+            
+            var lo = position.coords.longitude;
+
+            la.innerHTML
+
+            var times = SunCalc.getTimes(new Date(), la, lo);
+            
+            var y = document.getElementById("sunset");
+            y.innerHTML="~sunset is~" + times.sunset;
+
+          }
+            
+            
         </script>
+
+    
+
 
 
 
