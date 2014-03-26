@@ -2,6 +2,10 @@ html, body, .wrapper {
 	height: 100%;
 	width: 100%;
 }
+body {
+	//background: #4C45FF;
+	background: #4E6FFF;
+}
 
 .wrapper {
 	text-align: center;
@@ -11,3 +15,57 @@ span {
 	color: blue;
 }
 
+svg circle:nth-child(2n) {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 1000;
+  -webkit-animation: dash 3s ease alternate infinite;
+  animation: dash 3s linear infinite;
+}
+svg circle:nth-child(2n+1) {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 1000;
+  -webkit-animation: dash 4s ease alternate infinite;
+  animation: dash 4s linear infinite;
+}
+
+@-webkit-keyframes dash {
+  from {
+    stroke-dashoffset: 1200;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*
+svg circle {
+	stroke-dasharray: 120;
+	//stroke-dashoffset: 0;
+	-webkit-animation: dash 5s linear;
+	animation: dash 5s linear;
+}
+.sun g {
+	//stroke-dasharray: 20;
+	//-webkit-animation: dash 5s linear;
+	//animation: dash 5s linear;
+}
+@-webkit-keyframes dash {
+	to {
+		stroke-dashoffset: 1000;
+	}
+}
+@keyframes dash {
+	to {
+		stroke-dashoffset: 200;
+	}
+}
+*/
