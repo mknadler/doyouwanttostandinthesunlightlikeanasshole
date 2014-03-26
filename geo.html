@@ -28,7 +28,7 @@
              <button onclick="getLocation()">Try it</button>
 
              <p id="sunset">Click to get sunset time.</p>
-             <button onclick="showSunset()">Sunset</button>
+             <button onclick="getSunset()">Sunset</button>
 
             
 
@@ -46,7 +46,7 @@
 
         <!--geo location-->
        
-    
+ <!--   
         <script>
         var x=document.getElementById("demo");
         function getLocation()
@@ -60,24 +60,18 @@
         function showPosition(position)
           {
           x.innerHTML="Latitude: " + position.coords.latitude + 
-          "<br>Longitude: " + position.coords.longitude;    
-          
+          "<br>Longitude: " + position.coords.longitude;
           }
-          </script>
-        
-        <script>         
-
-          function showSunset()
-
+</script>
+-->
+<script>
+          function getSunset(){
+                navigator.geolocation.getCurrentPosition(showSunset);
+          }  
+          function showSunset(position)
           {
-            var z=document.getElementById("lat");
             var la = position.coords.latitude;
-            z.innerHTML=la
-            
             var lo = position.coords.longitude;
-
-            la.innerHTML
-
             var times = SunCalc.getTimes(new Date(), la, lo);
             
             var y = document.getElementById("sunset");
