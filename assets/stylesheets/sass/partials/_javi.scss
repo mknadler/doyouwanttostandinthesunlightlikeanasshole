@@ -1,0 +1,28 @@
+html, body, .wrapper {
+	height: 100%;
+	width: 100%;
+}
+
+.about-container, .time-container {
+	text-align: center;
+}
+<<<<<<< HEAD
+span {
+	//text-align: center;
+	color: blue;
+}
+=======
+.about-container {
+	margin: 3em 0;
+}
+
+.about-container p {
+	font-size: 20px;
+}
+.time-container p {
+	font-size: 24px;
+}
+.time-container p span {
+	color: red;
+}
+>>>>>>> FETCH_HEAD

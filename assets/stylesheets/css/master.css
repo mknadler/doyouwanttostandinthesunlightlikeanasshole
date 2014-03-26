@@ -1,141 +1,68 @@
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-/* 
-html5doctor.com Reset Stylesheet v1.6.1
-Last Updated: 2010-09-17
-Author: Richard Clark - http://richclarkdesign.com 
-*/
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
-
-body {
-  line-height: 1; }
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-nav ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none; }
-
-a {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
-
-/* change colours to suit your needs */
-ins {
-  background-color: #ff9;
-  color: #000;
-  text-decoration: none; }
-
-/* change colours to suit your needs */
-mark {
-  background-color: #ff9;
-  color: #000;
-  font-style: italic;
-  font-weight: bold; }
-
-del {
-  text-decoration: line-through; }
-
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted;
-  cursor: help; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-/* change border colour to suit your needs */
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #cccccc;
-  margin: 1em 0;
-  padding: 0; }
-
-input, select {
-  vertical-align: middle; }
-
 /*
-  __  __ _      _ _                 _      _           
- |  \/  (_)    (_| )               (_)    (_)          
- | \  / |_ _ __ _|/ ___   _ __ ___  ___  ___ _ __  ___ 
- | |\/| | | '__| | / __| | '_ ` _ \| \ \/ / | '_ \/ __|
- | |  | | | |  | | \__ \ | | | | | | |>  <| | | | \__ \
- |_|  |_|_|_|  |_| |___/ |_| |_| |_|_/_/\_\_|_| |_|___/
-                                                       
+Syntax error: Invalid CSS after "}": expected selector or at-rule, was "<<<<<<< HEAD"
+        on line 9 of /Users/macbookpro/Documents/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_javi.scss
+        from line 15 of /Users/macbookpro/Documents/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/master.scss
+
+4: }
+5: 
+6: .about-container, .time-container {
+7: 	text-align: center;
+8: }
+9: <<<<<<< HEAD
+10: span {
+11: 	//text-align: center;
+12: 	color: blue;
+13: }
+14: =======
+
+Backtrace:
+/Users/macbookpro/Documents/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_javi.scss:9
+/Users/macbookpro/Documents/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/master.scss:15
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/scss/parser.rb:1306:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/scss/parser.rb:1242:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/scss/parser.rb:42:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/engine.rb:409:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/engine.rb:305:in `to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:295:in `block in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:88:in `block in with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:88:in `with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/root_node.rb:20:in `render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/engine.rb:274:in `render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:414:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:186:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:393:in `on_file_changed'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:248:in `block in watch'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/listener.rb:252:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/adapter.rb:252:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/adapter.rb:252:in `report_changes'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/adapter.rb:321:in `poll_changed_directories'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/adapter.rb:297:in `block in start_poller'
 */
-/*
-
-REM with Pixel Fallback
-Vertically center in an unknown context
-Skew / Rotate 
-Retina images
-
-*/
-/* adapted from http://css-tricks.com/centering-in-the-unknown/
-
-	@extend .center-outer on the container div
-	@extend .center-inner on the div w/ centered content 
-
-*/
-.center-parent {
-  .text-align: center; }
-  .center-parent:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle; }
-
-.center-inner {
-  display: inline-block;
-  vertical-align: middle; }
-
-html, body, .wrapper {
-  height: 100%;
-  width: 100%; }
-
-.wrapper {
-  text-align: center; }
-
-span {
-  color: blue; }
-
-/** Notes
-
-Bourbon have a clearfix in bourbon/addons. just use @include clearfix;
-
-**/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"}\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 9 of /Users/macbookpro/Documents/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_javi.scss\A         from line 15 of /Users/macbookpro/Documents/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/master.scss\A \A 4: }\A 5: \A 6: .about-container, .time-container {\A 7: 	text-align: center;\A 8: }\A 9: <<<<<<< HEAD\A 10: span {\A 11: 	//text-align: center;\A 12: 	color: blue;\A 13: }\A 14: ======="; }
