@@ -3,9 +3,19 @@ html, body, .wrapper {
 	width: 100%;
 }
 
-.wrapper {
+.about-container, .time-container {
 	text-align: center;
 }
-span {
-	//text-align: center;
+.about-container {
+	margin: 3em 0;
+}
+
+.about-container p {
+	font-size: 20px;
+}
+.time-container p {
+	font-size: 24px;
+}
+.time-container p span {
+	color: red;
 }
