@@ -124,6 +124,13 @@ Retina images
   display: inline-block;
   vertical-align: middle; }
 
+html, body, .wrapper {
+  height: 100%;
+  width: 100%; }
+
+.wrapper {
+  text-align: center; }
+
 /** Notes
 
 Bourbon have a clearfix in bourbon/addons. just use @include clearfix;
