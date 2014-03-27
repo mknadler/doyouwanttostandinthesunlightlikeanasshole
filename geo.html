@@ -31,9 +31,7 @@
              <p id="sunset">Click to get sunset time.</p>
              <button onclick="getSunset()">Sunset</button>
 
-            <div id="diff">
-                <p> things </p>
-            </div>
+           
 
         </div>
 
@@ -69,10 +67,10 @@
           }  
           function showSunset(position)
           {
-            var lat = position.coords.latitude;
-            var log = position.coords.longitude;
+            var la = position.coords.latitude;
+            var lo = position.coords.longitude;
             var d1 = new Date();
-            var times = SunCalc.getTimes(d1, lat, log);
+            var times = SunCalc.getTimes(d1, la, lo);
             
             var d2 = new Date();
 
@@ -81,10 +79,12 @@
             var y = document.getElementById("sunset");
             y.innerHTML= "Time is: " + d2.toTimeString() + "<br>Sunset is: " + times.sunset;
 
-            
-
-
-          }
+            if (typeof y=='number')
+                {
+                    alert("variable is a number")
+                else
+                   alert("NOPE")
+           }
 
             
             
