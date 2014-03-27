@@ -18,7 +18,7 @@
                 <p><span>Want to know</span></p>
                 <p><span>how much sunlight</span></p>
                 <p><span>you have left today?</span></p>
-                <p><span>click here</span></p>
+                <p><span onclick="getSunset()">click here</span></p>
                 </div>
             </div>
 <div class="svg-container">
@@ -35,14 +35,16 @@
 
 
             <div class="time-container">
-                <div class="time"
-                <p>You have <span class="thetime">[time]</span> left.</p>
+                <div class="time">
+                <p><span id="howlong"></span></p>
                 </div>
             </div>
         </div>
+
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-        <script>
+        <script src="assets/js/suncalc.js"></script>
         <script src="assets/js/app.js"></script>
     </body>
 </html>

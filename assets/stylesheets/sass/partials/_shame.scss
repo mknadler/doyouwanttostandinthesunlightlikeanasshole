@@ -41,12 +41,27 @@ span {
 		padding: 8px;
 		background: $c-text-background;
 		border-radius: 7px;	
+		box-shadow: 4px 4px gray;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		&:hover {
+			cursor: help;
+		}
 	}
 	p:last-child {
 		margin-top: 20px;
 		margin-left: 40px;
 		span {
 			color: $darkblue;
+			&:hover {
+				color: $c-text-color;
+				cursor: pointer;
+			}
+			&:active{
+				color: gray;
+				//cursor: alias;
+			}
 		}
 	}
 }
@@ -63,6 +78,23 @@ span {
 }
 .time {
 	@extend .center-inner;
+	span {
+		color: $c-text-color;
+		padding: 8px;
+		background: $c-text-background;
+		border-radius: 7px;	
+		box-shadow: 4px 4px gray;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		display: none;
+		&:hover {
+			cursor: help;
+		}
+		p{
+			padding: 20px;
+		}
+	}
 }
 
 

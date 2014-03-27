@@ -161,12 +161,23 @@ span {
     color: #4ea7ff;
     padding: 8px;
     background: white;
-    border-radius: 7px; }
+    border-radius: 7px;
+    box-shadow: 4px 4px gray;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; }
+    .about span:hover {
+      cursor: help; }
   .about p:last-child {
     margin-top: 20px;
     margin-left: 40px; }
     .about p:last-child span {
       color: #0f7dfd; }
+      .about p:last-child span:hover {
+        color: #4ea7ff;
+        cursor: pointer; }
+      .about p:last-child span:active {
+        color: gray; }
 
 .svg-container {
   float: left;
@@ -177,6 +188,21 @@ span {
   float: left;
   width: 25%;
   height: 100%; }
+
+.time span {
+  color: #4ea7ff;
+  padding: 8px;
+  background: white;
+  border-radius: 7px;
+  box-shadow: 4px 4px gray;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  display: none; }
+  .time span:hover {
+    cursor: help; }
+  .time span p {
+    padding: 20px; }
 
 svg circle:nth-child(2n) {
   stroke-dasharray: 500;
