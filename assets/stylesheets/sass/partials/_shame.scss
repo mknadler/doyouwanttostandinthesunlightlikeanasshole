@@ -78,7 +78,17 @@ span {
 }
 .time {
 	@extend .center-inner;
-	span {
+	font-family: $din;
+	@include rem(20);
+	display: none;
+	position: relative;
+	z-index: 2;
+	right: 30%;
+	.time-inner {
+		padding: 5px;
+	}
+	#howlong, .time-inner > p {
+		display: inline-block;
 		color: $c-text-color;
 		padding: 8px;
 		background: $c-text-background;
@@ -87,12 +97,12 @@ span {
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
-		display: none;
+		//margin: 10px 0;
 		&:hover {
-			cursor: help;
+			//cursor: help;
 		}
 		p{
-			padding: 20px;
+			//padding: 20px;
 		}
 	}
 }

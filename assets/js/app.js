@@ -1,6 +1,11 @@
-$( document ).ready(function() {
-  $("#howlong").css("display", "none");
-});
+afterDisplay = null;
+
+$(function() {
+  function afterDisp() {
+    $(".time").css("display", "inline-block");
+  }
+  afterDisplay = afterDisp;
+})
 
 
 var z=document.getElementById("howlong");
@@ -25,7 +30,6 @@ function showSunset(position)
     var when = SunCalc.getTimes(new Date(), la, lo);
     var then = when.sunset;
     var difference = then - now;
-    z.innerHTML = difference;
     var seconds = Math.floor(difference / 1000);
     var numhours = Math.floor(seconds / 3600);
     var numminutes = Math.floor((seconds % 3600) / 60);
@@ -34,8 +38,7 @@ function showSunset(position)
       numhours = numhours * -1;
       numminutes = numminutes * -1;
       numseconds = numseconds * -1;
-      z.innerHTML = numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds ago!";
-      tooLate();
+      z.innerHTML = "Oh no! The sun set</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds ago!";
     }
-   
+    afterDisplay();
 }

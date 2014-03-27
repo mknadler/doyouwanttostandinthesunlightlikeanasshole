@@ -189,20 +189,26 @@ span {
   width: 25%;
   height: 100%; }
 
-.time span {
-  color: #4ea7ff;
-  padding: 8px;
-  background: white;
-  border-radius: 7px;
-  box-shadow: 4px 4px gray;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  display: none; }
-  .time span:hover {
-    cursor: help; }
-  .time span p {
-    padding: 20px; }
+.time {
+  font-family: "DIN Next W01 Medium";
+  font-size: 20px;
+  font-size: 2rem;
+  display: none;
+  position: relative;
+  z-index: 2;
+  right: 30%; }
+  .time .time-inner {
+    padding: 5px; }
+  .time #howlong, .time .time-inner > p {
+    display: inline-block;
+    color: #4ea7ff;
+    padding: 8px;
+    background: white;
+    border-radius: 7px;
+    box-shadow: 4px 4px gray;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; }
 
 svg circle:nth-child(2n) {
   stroke-dasharray: 500;
