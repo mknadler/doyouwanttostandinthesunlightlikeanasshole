@@ -1,10 +1,17 @@
+html {
+	font-size: 62.5%;
+}
 html, body, .wrapper {
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
 }
 body {
 	//background: #4C45FF;
-	background: #4E6FFF;
+	//background: #4E6FFF;
+	background: $c-background;
+	max-height: 100%;
+	overflow: hidden;
 }
 
 .wrapper {
@@ -14,6 +21,52 @@ span {
 	//text-align: center;
 	color: blue;
 }
+
+.about-container {
+	float: left;
+	width: 25%;
+	height: 100%;
+	margin: 0!important;
+	@extend .center-parent;
+}
+.about {
+	@extend .center-inner;
+	font-family: $din;
+	@include rem(20);
+	@include rem(20, padding-left);
+	text-align: left;
+	line-height: 1.5;
+	span {
+		color: $c-text-color;
+		padding: 8px;
+		background: $c-text-background;
+		border-radius: 7px;	
+	}
+	p:last-child {
+		margin-top: 20px;
+		margin-left: 40px;
+		span {
+			color: $darkblue;
+		}
+	}
+}
+.svg-container {
+	float: left;
+	width: 50%;
+	height: 99%;
+}
+.time-container {
+	float: left;
+	width: 25%;
+	height: 100%;
+	@extend .center-parent;
+}
+.time {
+	@extend .center-inner;
+}
+
+
+// SVG ANIMATION
 
 svg circle:nth-child(2n) {
   stroke-dasharray: 500;
@@ -45,27 +98,3 @@ svg circle:nth-child(2n+1) {
     stroke-dashoffset: 0;
   }
 }
-
-/*
-svg circle {
-	stroke-dasharray: 120;
-	//stroke-dashoffset: 0;
-	-webkit-animation: dash 5s linear;
-	animation: dash 5s linear;
-}
-.sun g {
-	//stroke-dasharray: 20;
-	//-webkit-animation: dash 5s linear;
-	//animation: dash 5s linear;
-}
-@-webkit-keyframes dash {
-	to {
-		stroke-dashoffset: 1000;
-	}
-}
-@keyframes dash {
-	to {
-		stroke-dashoffset: 200;
-	}
-}
-*/

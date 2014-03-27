@@ -112,30 +112,71 @@ Retina images
 	@extend .center-inner on the div w/ centered content 
 
 */
-.center-parent {
+.center-parent, .about-container, .time-container {
   .text-align: center; }
-  .center-parent:before {
+  .center-parent:before, .about-container:before, .time-container:before {
     content: '';
     display: inline-block;
     height: 100%;
     vertical-align: middle; }
 
-.center-inner {
+.center-inner, .about, .time {
   display: inline-block;
   vertical-align: middle; }
 
+html {
+  font-size: 62.5%; }
+
 html, body, .wrapper {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  overflow: hidden; }
 
 body {
-  background: #4E6FFF; }
+  background: #4ea7ff;
+  max-height: 100%;
+  overflow: hidden; }
 
 .wrapper {
   text-align: center; }
 
 span {
   color: blue; }
+
+.about-container {
+  float: left;
+  width: 25%;
+  height: 100%;
+  margin: 0 !important; }
+
+.about {
+  font-family: "DIN Next W01 Medium";
+  font-size: 20px;
+  font-size: 2rem;
+  padding-left: 20px;
+  padding-left: 2rem;
+  text-align: left;
+  line-height: 1.5; }
+  .about span {
+    color: #4ea7ff;
+    padding: 8px;
+    background: white;
+    border-radius: 7px; }
+  .about p:last-child {
+    margin-top: 20px;
+    margin-left: 40px; }
+    .about p:last-child span {
+      color: #0f7dfd; }
+
+.svg-container {
+  float: left;
+  width: 50%;
+  height: 99%; }
+
+.time-container {
+  float: left;
+  width: 25%;
+  height: 100%; }
 
 svg circle:nth-child(2n) {
   stroke-dasharray: 500;
@@ -161,51 +202,6 @@ svg circle:nth-child(2n+1) {
 
   to {
     stroke-dashoffset: 0; } }
-/*
-svg circle {
-	stroke-dasharray: 120;
-	//stroke-dashoffset: 0;
-	-webkit-animation: dash 5s linear;
-	animation: dash 5s linear;
-}
-.sun g {
-	//stroke-dasharray: 20;
-	//-webkit-animation: dash 5s linear;
-	//animation: dash 5s linear;
-}
-@-webkit-keyframes dash {
-	to {
-		stroke-dashoffset: 1000;
-	}
-}
-@keyframes dash {
-	to {
-		stroke-dashoffset: 200;
-	}
-}
-*/
-html, body, .wrapper {
-  height: 100%;
-  width: 100%; }
-
-.about-container, .time-container {
-  text-align: center; }
-
-span {
-  color: blue; }
-
-.about-container {
-  margin: 3em 0; }
-
-.about-container p {
-  font-size: 20px; }
-
-.time-container p {
-  font-size: 24px; }
-
-.time-container p span {
-  color: red; }
-
 /** Notes
 
 Bourbon have a clearfix in bourbon/addons. just use @include clearfix;
