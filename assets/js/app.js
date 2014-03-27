@@ -1,18 +1,21 @@
 afterDisplay = null;
+nightTime = null;
 
 $(function() {
   function afterDisp() {
     $(".time").css("display", "inline-block");
   }
   afterDisplay = afterDisp;
+  function isNight() {
+    $(".svg-container").addClass("moon");
+  }
+  nightTime = isNight;
 })
-
 
 var z=document.getElementById("howlong");
 
 function sunsetCalc(){
   getSunset();
-  getLocation();
 }
 
 function getSunset()
@@ -38,7 +41,17 @@ function showSunset(position)
       numhours = numhours * -1;
       numminutes = numminutes * -1;
       numseconds = numseconds * -1;
-      z.innerHTML = "Oh no! The sun set</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds ago!";
+      z.innerHTML = "Oh no! The sun set</p><p>" + numhours + " hours, " + numminutes + " minutes,</p><p> and " + numseconds + " seconds ago!";
+      nightTime();
+    }
+    else if (numhours <=2 && numhours >= 1) {
+      z.innerHTML = "Better hurry! You have</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds</p><p> of sunlight left!";
+    }
+    else if (numhours < 1) {
+      z.innerHTML = "Better hurry! You have</p><p>" + numminutes + " minutes,</p><p> and " + numseconds + " seconds</p><p>of sunlight left!";
+    }
+    else if (numhours >=2) {
+      z.innerHTML = "You have</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds</p><p>of sunlight left!";
     }
     afterDisplay();
 }

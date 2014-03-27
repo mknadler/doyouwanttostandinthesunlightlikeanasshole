@@ -110,17 +110,67 @@ span {
 
 // SVG ANIMATION
 
-svg circle:nth-child(2n) {
+svg circle:nth-child(2n+2) {
   stroke-dasharray: 500;
   stroke-dashoffset: 1000;
   -webkit-animation: dash 3s ease alternate infinite;
   animation: dash 3s linear infinite;
 }
-svg circle:nth-child(2n+1) {
+svg circle:nth-child(2n+3) {
   stroke-dasharray: 500;
   stroke-dashoffset: 1000;
   -webkit-animation: dash 4s ease alternate infinite;
   animation: dash 4s linear infinite;
+}
+
+.moon svg {
+	circle {
+		-webkit-animation: none;
+		animation: none;
+		stroke-linecap: square;
+		//-webkit-animation: moon 1s ease alternate 1;
+		//-webkit-animation: moon 1s ease alternate 1;
+		transition: stroke 4s ease, stroke-dasharray 4s ease, stroke-dashoffset 4s ease;
+		-webkit-timing-function: linear;
+		&:nth-child(1){
+			stroke-dasharray: 270, 300;
+			stroke-dashoffset: 0;
+			stroke: #111;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(2){
+			stroke-dasharray: 210, 300;
+			stroke-dashoffset: 0;
+			stroke: #222;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(3){
+			stroke-dasharray: 150, 300;
+			stroke-dashoffset: 0;
+			stroke: #333;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(4){
+			stroke-dasharray: 70, 300;
+			stroke-dashoffset: 0;
+			stroke: #444;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(5){
+			stroke-dasharray: 60, 210;
+			stroke-dashoffset: 0;
+			stroke: $c-background;
+			stroke-width: 0;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(6){
+			stroke-dasharray: 200, 150;
+			stroke-dashoffset: 0;
+			stroke: $c-background;
+			stroke-width: 0;
+					-webkit-animation-iteration-count: 1;
+		}
+	}
 }
 
 @-webkit-keyframes dash {
@@ -139,4 +189,8 @@ svg circle:nth-child(2n+1) {
   to {
     stroke-dashoffset: 0;
   }
+}
+
+@-webkit-keyframes moon {
+
 }
