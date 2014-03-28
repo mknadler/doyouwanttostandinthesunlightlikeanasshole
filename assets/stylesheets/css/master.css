@@ -130,12 +130,16 @@ html {
 html, body, .wrapper {
   height: 100%;
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  transition: background 5s ease; }
 
 body {
   background: #4ea7ff;
   max-height: 100%;
   overflow: hidden; }
+
+html.moon body {
+  background: #020d54; }
 
 .wrapper {
   text-align: center; }
@@ -145,18 +149,22 @@ span {
 
 .about-container {
   float: left;
-  width: 25%;
+  width: 30%;
   height: 100%;
   margin: 0 !important; }
 
 .about {
   font-family: "DIN Next W01 Medium";
-  font-size: 20px;
-  font-size: 2rem;
+  font-size: 28px;
+  font-size: 2.8rem;
   padding-left: 20px;
   padding-left: 2rem;
   text-align: left;
-  line-height: 1.5; }
+  line-height: 1.5;
+  position: relative;
+  left: 30%;
+  bottom: 25%;
+  transition: color 5s ease; }
   .about span {
     color: #4ea7ff;
     padding: 8px;
@@ -181,22 +189,28 @@ span {
 
 .svg-container {
   float: left;
-  width: 50%;
-  height: 99%; }
+  width: 40%;
+  height: 99%;
+  text-align: center; }
+
+svg {
+  width: 80%; }
 
 .time-container {
   float: left;
-  width: 25%;
+  width: 30%;
   height: 100%; }
 
 .time {
   font-family: "DIN Next W01 Medium";
-  font-size: 20px;
-  font-size: 2rem;
+  font-size: 28px;
+  font-size: 2.8rem;
   display: none;
   position: relative;
   z-index: 2;
-  right: 30%; }
+  right: 30%;
+  bottom: 25%;
+  transition: color 5s ease; }
   .time .time-inner {
     padding: 5px; }
   .time #howlong, .time .time-inner > p {
@@ -210,17 +224,56 @@ span {
     -moz-user-select: none;
     -ms-user-select: none; }
 
-svg circle:nth-child(2n+2) {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 1000;
-  -webkit-animation: dash 3s ease alternate infinite;
-  animation: dash 3s linear infinite; }
+@media screen and (min-width: 716px) and (max-width: 900px) {
+  .about, .time {
+    font-size: 18px;
+    font-size: 1.8rem; } }
+@media screen and (min-width: 601px) and (max-width: 715px) {
+  .about, .time {
+    font-size: 16px;
+    font-size: 1.6rem; } }
+@media screen and (max-width: 600px) {
+  .about, .time {
+    font-size: 14px;
+    font-size: 1.4rem; }
 
-svg circle:nth-child(2n+3) {
+  .about-container {
+    width: 100%;
+    height: 25%;
+    position: static; }
+    .about-container .about {
+      left: 0;
+      bottom: 0;
+      margin-top: 3%; }
+
+  .svg-container {
+    width: 100%;
+    height: 50%; }
+    .svg-container svg {
+      width: 100%; }
+
+  .time-container {
+    width: 100%;
+    height: 25%; }
+    .time-container .time {
+      right: 0;
+      bottom: 0; } }
+svg circle:nth-child(2n) {
   stroke-dasharray: 500;
   stroke-dashoffset: 1000;
+  -moz-animation: dash 3s ease alternate infinite;
+  -webkit-animation: dash 3s ease alternate infinite;
+  animation: dash 3s ease alternate infinite; }
+
+svg circle:nth-child(2n+1) {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 1000;
+  -moz-animation: dash 3s ease alternate infinite;
   -webkit-animation: dash 4s ease alternate infinite;
-  animation: dash 4s linear infinite; }
+  animation: dash 4s ease alternate infinite; }
+
+svg circle:nth-child(6) {
+  fill: #FFFFFF; }
 
 .moon svg circle {
   -webkit-animation: none;
@@ -231,22 +284,22 @@ svg circle:nth-child(2n+3) {
   .moon svg circle:nth-child(1) {
     stroke-dasharray: 270, 300;
     stroke-dashoffset: 0;
-    stroke: #111;
+    stroke: #DDD;
     -webkit-animation-iteration-count: 1; }
   .moon svg circle:nth-child(2) {
     stroke-dasharray: 210, 300;
     stroke-dashoffset: 0;
-    stroke: #222;
+    stroke: #CCC;
     -webkit-animation-iteration-count: 1; }
   .moon svg circle:nth-child(3) {
     stroke-dasharray: 150, 300;
     stroke-dashoffset: 0;
-    stroke: #333;
+    stroke: #BBB;
     -webkit-animation-iteration-count: 1; }
   .moon svg circle:nth-child(4) {
     stroke-dasharray: 70, 300;
     stroke-dashoffset: 0;
-    stroke: #444;
+    stroke: #AAA;
     -webkit-animation-iteration-count: 1; }
   .moon svg circle:nth-child(5) {
     stroke-dasharray: 60, 210;
@@ -259,8 +312,31 @@ svg circle:nth-child(2n+3) {
     stroke-dashoffset: 0;
     stroke: #4ea7ff;
     stroke-width: 0;
+    fill: none;
     -webkit-animation-iteration-count: 1; }
 
+.day svg circle {
+  transition: stroke 4s ease; }
+  .day svg circle:nth-child(1) {
+    stroke: #ffed92; }
+  .day svg circle:nth-child(2) {
+    stroke: #fff2a7; }
+  .day svg circle:nth-child(3) {
+    stroke: #fff6ba; }
+  .day svg circle:nth-child(4) {
+    stroke: #fffad0; }
+  .day svg circle:nth-child(5) {
+    stroke: #fffef1; }
+  .day svg circle:nth-child(6) {
+    stroke: white;
+    fill: white; }
+
+@-moz-keyframes dash {
+  from {
+    stroke-dashoffset: 1200; }
+
+  to {
+    stroke-dashoffset: 0; } }
 @-webkit-keyframes dash {
   from {
     stroke-dashoffset: 1200; }
@@ -269,7 +345,7 @@ svg circle:nth-child(2n+3) {
     stroke-dashoffset: 0; } }
 @keyframes dash {
   from {
-    stroke-dashoffset: 1000; }
+    stroke-dashoffset: 1200; }
 
   to {
     stroke-dashoffset: 0; } }

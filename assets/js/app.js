@@ -1,5 +1,6 @@
 afterDisplay = null;
 nightTime = null;
+dayTime = null;
 
 $(function() {
   function afterDisp() {
@@ -8,8 +9,13 @@ $(function() {
   afterDisplay = afterDisp;
   function isNight() {
     $(".svg-container").addClass("moon");
+    $("html").addClass("moon");
   }
   nightTime = isNight;
+  function isDay() {
+    $(".svg-container").addClass("day");
+  }
+  dayTime = isDay;
 })
 
 var z=document.getElementById("howlong");
@@ -32,6 +38,7 @@ function showSunset(position)
     var now = new Date();
     var when = SunCalc.getTimes(new Date(), la, lo);
     var then = when.sunset;
+    var gmorningtoya = when.sunrise;
     var difference = then - now;
     var seconds = Math.floor(difference / 1000);
     var numhours = Math.floor(seconds / 3600);
@@ -45,13 +52,16 @@ function showSunset(position)
       nightTime();
     }
     else if (numhours <=2 && numhours >= 1) {
-      z.innerHTML = "Better hurry! You have</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds</p><p> of sunlight left!";
+      z.innerHTML = "Better hurry! You have</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds</p><p>of sunlight left!";
+      dayTime();
     }
     else if (numhours < 1) {
       z.innerHTML = "Better hurry! You have</p><p>" + numminutes + " minutes,</p><p> and " + numseconds + " seconds</p><p>of sunlight left!";
+      dayTime();
     }
     else if (numhours >=2) {
-      z.innerHTML = "You have</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds</p><p>of sunlight left!";
+      z.innerHTML = "<p>You have</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds</p><p>of sunlight left!";
+      dayTime();
     }
     afterDisplay();
 }
