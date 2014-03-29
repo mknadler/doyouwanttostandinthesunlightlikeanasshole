@@ -29,6 +29,134 @@ span {
 	color: blue;
 }
 
+/*
+.animate-cloudToLeft {
+	@include animation(moveLeft 60.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) alternate);
+}
+*/
+/*
+@include keyframes(moveLeft){
+	0% {
+		right: -20%;
+		//opacity: 0;
+	}
+	10% {
+		right: 120%;
+		//opacity: 1;
+	}
+	20%{top: 30%;}
+	30%{right:-20%;}
+	40%{top:50%;}
+	50%{right:120%;}
+	60%{top:65%;}
+	70%{right:-20%;}
+	75%{top:85%;}
+	80%{right:120%;}
+	90%{top:10%;}
+	100%{right:-20%;}
+}
+*/
+/*
+@include keyframes(moveLeft){
+	0% {right: -20%;}
+	1% {opacity: 1;}
+	20% {right: 120%;}
+	39% {opacity: 0;}
+	40% {top: 30%;}
+	60% {right: -20%;}
+	79% {opacity: 1;}
+	80% {right: 120%;}
+	99% {top: 10%;}
+	100% {opacity: 0;}
+}
+*/
+@include keyframes(moveLeft){
+	0% {right: -20%;}
+	100% {right: 120%;}
+}
+div.cloudlayer {
+	z-index: -2;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	//background: #EDEDED;
+	.cloud {
+		z-index: 0;
+		width: 350px;
+		height: 120px;
+		position: fixed;
+		right: -20%;
+		top: 10%;
+		background: #FFFFCC;
+		-webkit-border-radius: 100px;
+		border-radius: 100px;
+		opacity: .2;
+		&:after, &:before {
+			content:'';
+			position: absolute;
+			background: #FFFFCC;
+			z-index: -1;
+		}
+		&:before{
+			width: 180px;
+			height: 180px;
+			top: -90px;
+			right: 50px;
+			-webkit-border-radius: 200px;
+			border-radius: 200px;
+		}
+		&:after{
+			width: 100px;
+			height: 100px;
+			top: -50px;
+			left: 50px;
+			-webkit-border-radius: 100px;
+			border-radius: 100px;
+		}
+		&:nth-child(1).animate-cloudToLeft{
+			@include animation(moveLeft 120.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+		}
+		&:nth-child(2){
+			margin-top: 20%;
+			margin-right: 30%;
+			@include transform(scale(.8));
+		}
+		&:nth-child(2).animate-cloudToLeft{
+			@include animation(moveLeft 150.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+		}
+		&:nth-child(3){
+			margin-top: 33%;
+			margin-right: 15%;
+			@include transform(scale(.7));
+		}
+		&:nth-child(3).animate-cloudToLeft{
+			@include animation(moveLeft 180.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+		}
+		&:nth-child(4){
+			margin-bottom: 13%;
+			margin-right: 27%;
+			@include transform(scale(.75));
+		}
+		&:nth-child(4).animate-cloudToLeft{
+			@include animation(moveLeft 210.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+		}
+		&:nth-child(5){
+			margin-bottom: 44%;
+			margin-right: 60%;
+			@include transform(scale(.6));
+		}
+		&:nth-child(5).animate-cloudToLeft{
+			@include animation(moveLeft 240.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+		}
+	}
+}
+
+
+
 .about-container {
 	float: left;
 	width: 30%;
@@ -88,6 +216,7 @@ svg {
 	//margin-right: auto;
 	//display: block;
 	width: 80%;
+	z-index: -1;
 }
 .time-container {
 	float: left;

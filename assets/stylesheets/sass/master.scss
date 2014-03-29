@@ -3,6 +3,7 @@
 @import "neat/neat"; // or "neat" when in Rails
 
 // Import modules
+@import "modules/animate";
 @import "modules/reset";
 @import "modules/colors";
 @import "modules/all";
