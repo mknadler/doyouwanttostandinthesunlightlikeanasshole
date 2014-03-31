@@ -2393,16 +2393,16 @@ span {
 
   100% {
     right: 120%; } }
-div.cloudlayer {
+.cloudlayer {
   z-index: -2;
   position: fixed;
   width: 100%;
   height: 100%;
-  left: 0;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0; }
-  div.cloudlayer .cloud {
+  .cloudlayer .cloud {
     z-index: 0;
     width: 350px;
     height: 120px;
@@ -2413,30 +2413,30 @@ div.cloudlayer {
     -webkit-border-radius: 100px;
     border-radius: 100px;
     opacity: .2; }
-    div.cloudlayer .cloud:after, div.cloudlayer .cloud:before {
+    .cloudlayer .cloud:after, .cloudlayer .cloud:before {
       content: '';
       position: absolute;
       background: #FFFFCC;
       z-index: -1; }
-    div.cloudlayer .cloud:before {
+    .cloudlayer .cloud:before {
       width: 180px;
       height: 180px;
       top: -90px;
       right: 50px;
       -webkit-border-radius: 200px;
       border-radius: 200px; }
-    div.cloudlayer .cloud:after {
+    .cloudlayer .cloud:after {
       width: 100px;
       height: 100px;
       top: -50px;
       left: 50px;
       -webkit-border-radius: 100px;
       border-radius: 100px; }
-    div.cloudlayer .cloud:nth-child(1).animate-cloudToLeft {
+    .cloudlayer .cloud:nth-child(1).animate-cloudToLeft {
       -webkit-animation: moveLeft 120s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       -moz-animation: moveLeft 120s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       animation: moveLeft 120s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
-    div.cloudlayer .cloud:nth-child(2) {
+    .cloudlayer .cloud:nth-child(2) {
       margin-top: 20%;
       margin-right: 30%;
       -webkit-transform: scale(0.8);
@@ -2444,11 +2444,11 @@ div.cloudlayer {
       -ms-transform: scale(0.8);
       -o-transform: scale(0.8);
       transform: scale(0.8); }
-    div.cloudlayer .cloud:nth-child(2).animate-cloudToLeft {
+    .cloudlayer .cloud:nth-child(2).animate-cloudToLeft {
       -webkit-animation: moveLeft 150s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       -moz-animation: moveLeft 150s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       animation: moveLeft 150s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
-    div.cloudlayer .cloud:nth-child(3) {
+    .cloudlayer .cloud:nth-child(3) {
       margin-top: 33%;
       margin-right: 15%;
       -webkit-transform: scale(0.7);
@@ -2456,11 +2456,11 @@ div.cloudlayer {
       -ms-transform: scale(0.7);
       -o-transform: scale(0.7);
       transform: scale(0.7); }
-    div.cloudlayer .cloud:nth-child(3).animate-cloudToLeft {
+    .cloudlayer .cloud:nth-child(3).animate-cloudToLeft {
       -webkit-animation: moveLeft 180s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       -moz-animation: moveLeft 180s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       animation: moveLeft 180s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
-    div.cloudlayer .cloud:nth-child(4) {
+    .cloudlayer .cloud:nth-child(4) {
       margin-bottom: 13%;
       margin-right: 27%;
       -webkit-transform: scale(0.75);
@@ -2468,11 +2468,11 @@ div.cloudlayer {
       -ms-transform: scale(0.75);
       -o-transform: scale(0.75);
       transform: scale(0.75); }
-    div.cloudlayer .cloud:nth-child(4).animate-cloudToLeft {
+    .cloudlayer .cloud:nth-child(4).animate-cloudToLeft {
       -webkit-animation: moveLeft 210s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       -moz-animation: moveLeft 210s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       animation: moveLeft 210s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
-    div.cloudlayer .cloud:nth-child(5) {
+    .cloudlayer .cloud:nth-child(5) {
       margin-bottom: 44%;
       margin-right: 60%;
       -webkit-transform: scale(0.6);
@@ -2480,16 +2480,16 @@ div.cloudlayer {
       -ms-transform: scale(0.6);
       -o-transform: scale(0.6);
       transform: scale(0.6); }
-    div.cloudlayer .cloud:nth-child(5).animate-cloudToLeft {
+    .cloudlayer .cloud:nth-child(5).animate-cloudToLeft {
       -webkit-animation: moveLeft 240s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       -moz-animation: moveLeft 240s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       animation: moveLeft 240s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
 
 .about-container {
-  float: left;
-  width: 30%;
-  height: 100%;
-  margin: 0 !important; }
+  width: 90%;
+  height: 15%;
+  text-align: center;
+  margin: 0 auto; }
 
 .about {
   font-family: "DIN Next W01 Medium";
@@ -2499,36 +2499,21 @@ div.cloudlayer {
   padding-left: 2rem;
   text-align: left;
   line-height: 1.5;
-  position: relative;
-  left: 30%;
-  bottom: 25%;
-  transition: color 5s ease; }
+  padding-top: 40px;
+  padding-top: 4rem; }
   .about span {
-    color: #4ea7ff;
-    padding: 8px;
-    background: white;
-    border-radius: 7px;
-    box-shadow: 4px 4px gray;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none; }
+    transition: color 5s ease, opacity 5s ease;
+    color: #333;
+    opacity: .8;
+    padding-top: 30px;
+    padding-top: 3rem; }
     .about span:hover {
       cursor: help; }
-  .about p:last-child {
-    margin-top: 20px;
-    margin-left: 40px; }
-    .about p:last-child span {
-      color: #0f7dfd; }
-      .about p:last-child span:hover {
-        color: #4ea7ff;
-        cursor: pointer; }
-      .about p:last-child span:active {
-        color: gray; }
 
 .svg-container {
   float: left;
-  width: 40%;
-  height: 99%;
+  width: 100%;
+  height: 70%;
   text-align: center; }
 
 svg {
@@ -2537,28 +2522,23 @@ svg {
 
 .time-container {
   float: left;
-  width: 30%;
-  height: 100%; }
+  width: 100%;
+  height: 15%; }
 
 .time {
   font-family: "DIN Next W01 Medium";
   font-size: 28px;
   font-size: 2.8rem;
   display: none;
-  position: relative;
   z-index: 2;
-  right: 30%;
-  bottom: 25%;
-  transition: color 5s ease; }
+  text-align: center; }
   .time .time-inner {
     padding: 5px; }
-  .time #howlong, .time .time-inner > p {
+  .time #howlong {
     display: inline-block;
     color: #4ea7ff;
-    padding: 8px;
-    background: white;
-    border-radius: 7px;
-    box-shadow: 4px 4px gray;
+    opacity: 0;
+    transition: color 5s ease, opacity 5s ease;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none; }
@@ -2613,6 +2593,9 @@ svg circle:nth-child(2n+1) {
 
 svg circle:nth-child(6) {
   fill: #FFFFFF; }
+
+.sun-selector {
+  opacity: 0; }
 
 .moon svg circle {
   -webkit-animation: none;

@@ -1,16 +1,23 @@
 afterDisplay = null;
 nightTime = null;
 dayTime = null;
-
+afterDisplay = function (){
+   $(".time").css("display", "inline-block");
+}
 $(function() {
   $(".cloud").addClass("animate-cloudToLeft");
+/*
   function afterDisp() {
     $(".time").css("display", "inline-block");
   }
   afterDisplay = afterDisp;
+*/
   function isNight() {
     $(".svg-container").addClass("moon");
     $("html").addClass("moon");
+    $(".about span, #howlong").css("color", "#DDD");
+    $(".about span").css("opacity", "0");
+    $("#howlong").css("opacity", "1");
   }
   nightTime = isNight;
   function isDay() {
@@ -43,23 +50,27 @@ function showSunset(position)
     var numhours = Math.floor(seconds / 3600);
     var numminutes = Math.floor((seconds % 3600) / 60);
     var numseconds = Math.floor((seconds % 3600) % 60);
-    if (difference < 0) {
+    if (gmorningtoya > now) {
+      z.innerHTML = "It isn't even sunrise yet, calm down!";
+      nightTime();
+    }
+    else if (difference < 0) {
       numhours = numhours * -1;
       numminutes = numminutes * -1;
       numseconds = numseconds * -1;
-      z.innerHTML = "Oh no! The sun set</p><p>" + numhours + " hours, " + numminutes + " minutes,</p><p> and " + numseconds + " seconds ago!";
+      z.innerHTML = "Oh no! The sun set " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds ago!";
       nightTime();
     }
     else if (numhours <=2 && numhours >= 1) {
-      z.innerHTML = "Better hurry! You have</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds</p><p>of sunlight left!";
+      z.innerHTML = "Better hurry! You have " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds of sunlight left!";
       dayTime();
     }
     else if (numhours < 1) {
-      z.innerHTML = "Better hurry! You have</p><p>" + numminutes + " minutes,</p><p> and " + numseconds + " seconds</p><p>of sunlight left!";
+      z.innerHTML = "Better hurry! You have " + numminutes + " minutes, and " + numseconds + " seconds of sunlight left!";
       dayTime();
     }
     else if (numhours >=2) {
-      z.innerHTML = "<p>You have</p><p>" + numhours + " hours, " + numminutes + " minutes, </p><p> and " + numseconds + " seconds</p><p>of sunlight left!";
+      z.innerHTML = "You have " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds of sunlight left!";
       dayTime();
     }
     afterDisplay();

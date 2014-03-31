@@ -22,10 +22,7 @@
             </div>
             <div class="about-container">
                 <div class="about">
-                <p><span>Want to know</span></p>
-                <p><span>how much sunlight</span></p>
-                <p><span>you have left today?</span></p>
-                <p><span onclick="getSunset()">click here</span></p>
+                <p><span>Want to know how much sunlight you have left today? click the sun!</span></p>
                 </div>
             </div>
 <div class="svg-container">
@@ -37,14 +34,7 @@
     <circle fill="none" stroke="#FFF383" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="63.5"/>
     <circle fill="none" stroke="#FFF8A4" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="45.2"/>
     <circle fill="none" stroke="#FFFCC0" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="26.9"/>
-    <g id="Layer_1_copy" display="none">
-<circle fill="none" stroke="#FFE045" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="133.2"/>
-<circle fill="none" stroke="#FFE75A" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="112.2"/>
-<circle fill="none" stroke="#FFED6E" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="91.1"/>
-<circle fill="none" stroke="#FFF383" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="69.5"/>
-<circle fill="none" stroke="#FFF8A4" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="48.1"/>
-<circle fill="none" stroke="#FFFCC0" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="26.9"/>
-</g>
+    <circle onclick="getSunset()" class="sun-selector" cx="249.2" stroke-width="20" cy="243" r="130"/>
 </svg>
 </div>
 
@@ -59,6 +49,7 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="assets/js/fittext.js"></script>
         <script src="assets/js/suncalc.js"></script>
         <script src="assets/js/app.js?1.01"></script>
     </body>

@@ -74,13 +74,17 @@ span {
 	0% {right: -20%;}
 	100% {right: 120%;}
 }
-div.cloudlayer {
+
+// Have all clouds start just outside the right edge
+// 
+ 
+.cloudlayer {
 	z-index: -2;
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	left: 0;
 	top: 0;
+	left: 0;
 	right: 0;
 	bottom: 0;
 	//background: #EDEDED;
@@ -158,11 +162,12 @@ div.cloudlayer {
 
 
 .about-container {
-	float: left;
-	width: 30%;
-	height: 100%;
-	margin: 0!important;
+	width: 90%;
+	height: 15%;
+	//margin: 0!important;
+	text-align: center;
 	@extend .center-parent;
+	margin: 0 auto;
 }
 .about {
 	@extend .center-inner;
@@ -171,43 +176,32 @@ div.cloudlayer {
 	@include rem(20, padding-left);
 	text-align: left;
 	line-height: 1.5;
-	position: relative;
-	left: 30%;
-	bottom: 25%;
-	transition: color 5s ease;
+	//position: relative;
+	//left: 30%;
+	//bottom: 25%;
+	@include rem(40, padding-top);
+	
 	span {
-		color: $c-text-color;
-		padding: 8px;
-		background: $c-text-background;
-		border-radius: 7px;	
-		box-shadow: 4px 4px gray;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
+		transition: color 5s ease, opacity 5s ease;
+		color: #333;
+		opacity: .8;
+		@include rem(30, padding-top);
+		//padding: 8px;
+		//background: $c-text-background;
+		//border-radius: 7px;	
+		//box-shadow: 4px 4px gray;
+		//-webkit-user-select: none;
+		//-moz-user-select: none;
+		//-ms-user-select: none;
 		&:hover {
 			cursor: help;
-		}
-	}
-	p:last-child {
-		margin-top: 20px;
-		margin-left: 40px;
-		span {
-			color: $darkblue;
-			&:hover {
-				color: $c-text-color;
-				cursor: pointer;
-			}
-			&:active{
-				color: gray;
-				//cursor: alias;
-			}
 		}
 	}
 }
 .svg-container {
 	float: left;
-	width: 40%;
-	height: 99%;
+	width: 100%;
+	height: 70%;
 	text-align: center;
 }
 svg {
@@ -220,8 +214,8 @@ svg {
 }
 .time-container {
 	float: left;
-	width: 30%;
-	height: 100%;
+	width: 100%;
+	height: 15%;
 	@extend .center-parent;
 }
 .time {
@@ -229,21 +223,25 @@ svg {
 	font-family: $din;
 	@include rem(28);
 	display: none;
-	position: relative;
+	//position: relative;
 	z-index: 2;
-	right: 30%;
-	bottom: 25%;
+	//right: 30%;
+	//bottom: 25%;
+	text-align: center;
 	.time-inner {
 		padding: 5px;
 	}
-	transition: color 5s ease;
-	#howlong, .time-inner > p {
+	
+	#howlong {
+
 		display: inline-block;
 		color: $c-text-color;
-		padding: 8px;
-		background: $c-text-background;
-		border-radius: 7px;	
-		box-shadow: 4px 4px gray;
+		opacity: 0;
+		transition: color 5s ease, opacity 5s ease;
+		//padding: 8px;
+		//background: $c-text-background;
+		//border-radius: 7px;	
+		//box-shadow: 4px 4px gray;
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
@@ -315,6 +313,10 @@ svg circle:nth-child(2n+1) {
 }
 svg circle:nth-child(6) {
 	fill: #FFFFFF;
+}
+
+.sun-selector {
+	opacity: 0;
 }
 
 .moon svg {
