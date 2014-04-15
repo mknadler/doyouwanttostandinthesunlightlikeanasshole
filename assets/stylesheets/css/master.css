@@ -2374,25 +2374,49 @@ span {
     right: -20%; }
 
   100% {
-    right: 120%; } }
+    right: 105%; } }
 @-moz-keyframes moveLeft {
   0% {
     right: -20%; }
 
   100% {
-    right: 120%; } }
+    right: 105%; } }
 @-o-keyframes moveLeft {
   0% {
     right: -20%; }
 
   100% {
-    right: 120%; } }
+    right: 105%; } }
 @keyframes moveLeft {
   0% {
     right: -20%; }
 
   100% {
-    right: 120%; } }
+    right: 105%; } }
+@-webkit-keyframes moveLeftsecond {
+  0% {
+    right: -40%; }
+
+  100% {
+    right: 105%; } }
+@-moz-keyframes moveLeftsecond {
+  0% {
+    right: -40%; }
+
+  100% {
+    right: 105%; } }
+@-o-keyframes moveLeftsecond {
+  0% {
+    right: -40%; }
+
+  100% {
+    right: 105%; } }
+@keyframes moveLeftsecond {
+  0% {
+    right: -40%; }
+
+  100% {
+    right: 105%; } }
 .cloudlayer {
   z-index: -2;
   position: fixed;
@@ -2432,13 +2456,14 @@ span {
       left: 50px;
       -webkit-border-radius: 100px;
       border-radius: 100px; }
+    .cloudlayer .cloud:nth-child(1) {
+      background: green; }
     .cloudlayer .cloud:nth-child(1).animate-cloudToLeft {
       -webkit-animation: moveLeft 120s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       -moz-animation: moveLeft 120s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       animation: moveLeft 120s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
     .cloudlayer .cloud:nth-child(2) {
       margin-top: 20%;
-      margin-right: 30%;
       -webkit-transform: scale(0.8);
       -moz-transform: scale(0.8);
       -ms-transform: scale(0.8);
@@ -2450,7 +2475,6 @@ span {
       animation: moveLeft 150s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
     .cloudlayer .cloud:nth-child(3) {
       margin-top: 33%;
-      margin-right: 15%;
       -webkit-transform: scale(0.7);
       -moz-transform: scale(0.7);
       -ms-transform: scale(0.7);
@@ -2462,7 +2486,6 @@ span {
       animation: moveLeft 180s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
     .cloudlayer .cloud:nth-child(4) {
       margin-bottom: 13%;
-      margin-right: 27%;
       -webkit-transform: scale(0.75);
       -moz-transform: scale(0.75);
       -ms-transform: scale(0.75);
@@ -2474,7 +2497,6 @@ span {
       animation: moveLeft 210s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
     .cloudlayer .cloud:nth-child(5) {
       margin-bottom: 44%;
-      margin-right: 60%;
       -webkit-transform: scale(0.6);
       -moz-transform: scale(0.6);
       -ms-transform: scale(0.6);
@@ -2484,6 +2506,22 @@ span {
       -webkit-animation: moveLeft 240s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       -moz-animation: moveLeft 240s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
       animation: moveLeft 240s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
+    .cloudlayer .cloud:nth-child(1n + 5) {
+      right: -100px; }
+    .cloudlayer .cloud:nth-child(6) {
+      margin-top: 30%; }
+    .cloudlayer .cloud:nth-child(7) {
+      margin-top: 40%; }
+    .cloudlayer .cloud:nth-child(8) {
+      margin-top: 50%; }
+    .cloudlayer .cloud:nth-child(9) {
+      margin-top: 60%; }
+    .cloudlayer .cloud:nth-child(10) {
+      margin-top: 45%; }
+    .cloudlayer .cloud:nth-child(1n + 5).animate-cloudToLeft {
+      -webkit-animation: moveLeftsecond 20s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
+      -moz-animation: moveLeftsecond 20s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
+      animation: moveLeftsecond 20s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
 
 .about-container {
   width: 90%;

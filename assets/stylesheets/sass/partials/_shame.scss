@@ -72,8 +72,13 @@ span {
 */
 @include keyframes(moveLeft){
 	0% {right: -20%;}
-	100% {right: 120%;}
+	100% {right: 105%;}
 }
+@include keyframes(moveLeftsecond){
+	0% {right: -40%;}
+	100% {right: 105%;}
+}
+
 
 // Have all clouds start just outside the right edge
 // 
@@ -121,12 +126,16 @@ span {
 			-webkit-border-radius: 100px;
 			border-radius: 100px;
 		}
+		&:nth-child(1){
+			background: green;
+			//right: -50;
+		}
 		&:nth-child(1).animate-cloudToLeft{
 			@include animation(moveLeft 120.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
 		}
 		&:nth-child(2){
 			margin-top: 20%;
-			margin-right: 30%;
+			//margin-right: 30%;
 			@include transform(scale(.8));
 		}
 		&:nth-child(2).animate-cloudToLeft{
@@ -134,7 +143,7 @@ span {
 		}
 		&:nth-child(3){
 			margin-top: 33%;
-			margin-right: 15%;
+			//margin-right: 15%;
 			@include transform(scale(.7));
 		}
 		&:nth-child(3).animate-cloudToLeft{
@@ -142,7 +151,7 @@ span {
 		}
 		&:nth-child(4){
 			margin-bottom: 13%;
-			margin-right: 27%;
+			//margin-right: 27%;
 			@include transform(scale(.75));
 		}
 		&:nth-child(4).animate-cloudToLeft{
@@ -150,11 +159,32 @@ span {
 		}
 		&:nth-child(5){
 			margin-bottom: 44%;
-			margin-right: 60%;
+			//margin-right: 60%;
 			@include transform(scale(.6));
 		}
 		&:nth-child(5).animate-cloudToLeft{
 			@include animation(moveLeft 240.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+		}
+		&:nth-child(1n + 5){
+			right: -100px;
+		}
+		&:nth-child(6) {
+			margin-top: 30%;
+		}
+		&:nth-child(7) {
+			margin-top: 40%;
+		}
+		&:nth-child(8) {
+			margin-top: 50%;
+		}
+		&:nth-child(9) {
+			margin-top: 60%;
+		}
+		&:nth-child(10) {
+			margin-top: 45%;
+		}
+		&:nth-child(1n + 5).animate-cloudToLeft{
+			@include animation(moveLeftsecond 20.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
 		}
 	}
 }
