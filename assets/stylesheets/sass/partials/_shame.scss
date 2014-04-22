@@ -127,7 +127,6 @@ span {
 			border-radius: 100px;
 		}
 		&:nth-child(1){
-			background: green;
 			//right: -50;
 		}
 		&:nth-child(1).animate-cloudToLeft{
@@ -175,20 +174,24 @@ span {
 			margin-top: 40%;
 		}
 		&:nth-child(8) {
-			margin-top: 50%;
+			margin-bottom: 17%;
 		}
 		&:nth-child(9) {
-			margin-top: 60%;
+			margin-bottom: 35%;
 		}
 		&:nth-child(10) {
 			margin-top: 45%;
 		}
 		&:nth-child(1n + 5).animate-cloudToLeft{
-			@include animation(moveLeftsecond 20.0s cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
 		}
 	}
 }
 
+@for $i from 6 to 10 {
+	.cloud:nth-child(#{$i}).animate-cloudToLeft{
+		@include animation(moveLeftsecond (120.0s + (30 * $i)) cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+	}
+}
 
 
 .about-container {
@@ -265,9 +268,9 @@ svg {
 	#howlong {
 
 		display: inline-block;
-		color: $c-text-color;
-		opacity: 0;
-		transition: color 5s ease, opacity 5s ease;
+		color: #333;
+		opacity: .8;
+		//transition: color 5s ease;		
 		//padding: 8px;
 		//background: $c-text-background;
 		//border-radius: 7px;	
@@ -284,6 +287,7 @@ svg {
 		}
 	}
 }
+
 @include media($medium-large){
 	.about, .time {
 		@include rem(18);
@@ -463,4 +467,36 @@ svg circle:nth-child(6) {
 
 @-webkit-keyframes moon {
 
+}
+
+
+
+// PRELOADER
+
+body {
+	overflow: hidden;
+}
+
+/* Preloader */
+
+#preloader {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#fff; /* change if the mask should have another color then white */
+    z-index:99; /* makes sure it stays on top */
+}
+
+#status {
+    width:200px;
+    height:200px;
+    position:absolute;
+    left:50%; /* centers the loading animation horizontally one the screen */
+    top:50%; /* centers the loading animation vertically one the screen */
+    background-image:url(../img/status.gif); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-position:center;
+    margin:-100px 0 0 -100px; /* is width and height divided by two */
 }

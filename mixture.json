@@ -1,5 +1,5 @@
 {
-    "debug": false,
+    "debug": true,
     "lintScripts": false,
     "preprocessorLocations": "assets",
     "preprocessorScriptOutput": "assets/js",
