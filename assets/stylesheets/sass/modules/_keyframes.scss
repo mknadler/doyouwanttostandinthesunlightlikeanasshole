@@ -1,0 +1,26 @@
+@include keyframes(moveLeft){
+  0% {
+    right: -20%;
+  }
+  100% {
+    right: 105%;
+  }
+}
+
+@include keyframes(moveLeftsecond){
+  0% {
+    right: -40%;
+  }
+  100% {
+    right: 105%;
+  }
+}
+
+@include keyframes(dash){
+  from {
+    stroke-dashoffset: 1200;
+  }
+  to  {
+    stroke-dashoffset: 0;
+  }
+}

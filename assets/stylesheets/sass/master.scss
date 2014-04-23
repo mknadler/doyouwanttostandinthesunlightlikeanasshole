@@ -3,17 +3,18 @@
 @import "neat/neat"; // or "neat" when in Rails
 
 // Import modules
-@import "modules/animate";
+//@import "modules/animate";
 @import "modules/reset";
 @import "modules/colors";
 @import "modules/all";
 @import "modules/breakpoints";
 @import "modules/typography";
 @import "modules/mirismixins";
+@import "modules/keyframes";
 
 // Import Partials
 @import "partials/shame";
-@import "partials/javi";
+@import "partials/clouds";
 
 
 

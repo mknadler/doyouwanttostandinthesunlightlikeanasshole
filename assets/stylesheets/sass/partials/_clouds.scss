@@ -1,0 +1,94 @@
+.cloudlayer {
+	z-index: -2;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	//background: #EDEDED;
+	.cloud {
+		z-index: 0;
+		width: 350px;
+		height: 120px;
+		position: fixed;
+		right: -20%;
+		top: 10%;
+		background: #FFFFCC;
+		-webkit-border-radius: 100px;
+		border-radius: 100px;
+		opacity: .2;
+		&:after, &:before {
+			content:'';
+			position: absolute;
+			background: #FFFFCC;
+			z-index: -1;
+		}
+		&:before{
+			width: 180px;
+			height: 180px;
+			top: -90px;
+			right: 50px;
+			-webkit-border-radius: 200px;
+			border-radius: 200px;
+		}
+		&:after{
+			width: 100px;
+			height: 100px;
+			top: -50px;
+			left: 50px;
+			-webkit-border-radius: 100px;
+			border-radius: 100px;
+		}
+		&:nth-child(1){
+		}
+		&:nth-child(2){
+			margin-top: 20%;
+			@include transform(scale(.8));
+		}
+		&:nth-child(3){
+			margin-top: 33%;
+			@include transform(scale(.7));
+		}
+		&:nth-child(4){
+			margin-bottom: 13%;
+			@include transform(scale(.75));
+		}
+		&:nth-child(5){
+			margin-bottom: 44%;
+			@include transform(scale(.6));
+		}
+		&:nth-child(1n + 5){
+			right: -100px;
+		}
+		&:nth-child(6) {
+			margin-top: 30%;
+		}
+		&:nth-child(7) {
+			margin-top: 40%;
+		}
+		&:nth-child(8) {
+			margin-bottom: 17%;
+		}
+		&:nth-child(9) {
+			margin-bottom: 35%;
+		}
+		&:nth-child(10) {
+			margin-top: 45%;
+		}
+		&:nth-child(1n + 5).animate-cloudToLeft{
+		}
+	}
+}
+
+@for $i from 1 to 5 {
+	.cloud:nth-child(#{$i}).animate-cloudToLeft{
+		@include animation(moveLeft (90.0s + (30 * $i)) cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+	}
+}
+@for $i from 6 to 10 {
+	.cloud:nth-child(#{$i}).animate-cloudToLeft{
+		@include animation(moveLeftsecond (120.0s + (30 * $i)) cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+	}
+}

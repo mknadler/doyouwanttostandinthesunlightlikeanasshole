@@ -8,26 +8,41 @@ var sun = $(".sun-selector");
 $(function(){
 	$(".cloud").addClass("animate-cloudToLeft");
 	sun.click(geolocate);
+    var log = new Date();
+    console.log("clicked: " + log);
 });
-
 // Grab geolocation data & pass the Position object
 // created by the geolocation API to the sunsetCalc function
 
-var geolocate = function(isfirst) {	
-	console.log("geolocate");
-	if ($("body").hasClass("initial")) {
-		about.text("Calculating...");
-		$("body").removeClass("initial");
-	}
+
+
+var geolocate = function(isfirst) {
+    about.animate({"color": "#ffffcc", "opacity":"0"}, 400);
+    var log = new Date();
+    $("body").css("cursor", "wait");
+    //$("#sunner").animate({opacity: 0.6}, 100);
+    $(".svg-container").addClass("grayed");
+    // $("div.about").css({"dispay": "block", "height": "100px"}).animate({width: 0}, 200);
+    console.log("geolocate started: " + log);	
 	if (navigator.geolocation) {
+            log = new Date();
+            console.log("passing geo->calc: " + log);
 		navigator.geolocation.getCurrentPosition(sunsetCalc);
+            log = new Date();
+            console.log("passed geo->calc: " + log);
 	} else {
 		alert("Sorry! Geolocation is not supported by this browser. We will be adding zip code functionality soon.")
 	}
+    log = new Date();
+    console.log("geolocate finished: " + log);
 }
 
 var sunsetCalc = function(position){
-	console.log("sunsetcalc");
+    $("body").css("cursor","auto");
+    $("#sunner").animate({opacity: 1});
+    output.hide();
+	var log = new Date();
+    console.log("sunsetCalc started: " + log);
 	// pull info from the Position object created by
 	// the geolocation; run them through Sun Calc;
 	// set up the variables we'll need later.
@@ -38,6 +53,8 @@ var sunsetCalc = function(position){
 	var sunset_time = all_times.sunset;
 	var sunrise_time = all_times.sunrise;
 	
+    log = new Date();
+    console.log("times pulled: "+log);
 	// figure out the difference between
 	// now and sunset 
 	// & convert it to hours, minutes, and seconds
@@ -46,7 +63,8 @@ var sunsetCalc = function(position){
     var numhours = Math.floor(seconds / 3600);
     var numminutes = Math.floor((seconds % 3600) / 60);
     var numseconds = Math.floor((seconds % 3600) % 60);
-    
+    log = new Date();
+    console.log("times converted: "+log);
     // Output the time + change css classes
     // depending on whether it is daytime or nighttime
     if (sunrise_time > now) {
@@ -70,6 +88,10 @@ var sunsetCalc = function(position){
     	$(".svg-container").addClass("day");
     }
     // Hide the top text, show the bottom text
-    about.empty();
     $(".time").css("display", "inline-block");
+    output.fadeIn(1200);
+    about.empty();
+    $(".svg-container").removeClass("grayed");
+    log = new Date();
+    console.log("sunsetCalc finished: " + log);
 }

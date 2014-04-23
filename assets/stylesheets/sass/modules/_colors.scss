@@ -7,3 +7,13 @@ $nightgray: #666;
 $c-text-background: #FFF;
 $c-text-color: $lightblue;
 $c-background: $lightblue;
+$c-background--night: $nightblue;
+
+body {
+	background: $c-background;
+}
+
+html.moon body {
+	background: $c-background--night;
+}
+
