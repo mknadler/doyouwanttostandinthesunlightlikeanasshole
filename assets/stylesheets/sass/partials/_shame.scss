@@ -41,7 +41,95 @@ span#about {
 		&:hover {
 			cursor: help;
 		}
+		#close-pane{
+			@include button;
+		}
 	}
+
+.question.cloud {
+	z-index: 500;
+	background: #333;
+	position: fixed;
+	@include rem(1, right);
+	top: 42%;
+	@include transform(scale(.5));
+	opacity: .5;
+	//transition: background 0.3s ease-in-out;
+	&:after, &:before {
+		z-index: 499;
+		background: #333;
+		//transition: background 0.3s ease-in-out;
+	}
+	span {
+		@include rem(30);
+		color: #CCC;
+		//transition: color 0.3s ease-in-out;
+		@include transform(scale(1.5));
+		z-index: 501;
+		position: fixed;
+		right: 35%;
+		top: 25%;
+	}
+}
+
+.question.cloud.hovered{
+	//transition: background 0.3s ease-in-out;
+	background: #CCC;
+	&:after, &:before{
+		//transition: background 0.3s ease-in-out;
+		background: #CCC;
+	}
+	span {
+		//transition: color 0.3s ease-in-out;
+		color: #000;
+	}
+}
+
+.pane {
+	transition: top 1s ease;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: -100%;
+	z-index: 1000;
+	background: url(../../img/old_moon.png);
+	opacity: .99;
+}
+.pane.full {
+	transition: top 1s ease;
+	top: 0%;
+}
+
+.pane-content {
+	width: 40%;
+	text-align: left;
+			margin-left: auto;
+		margin-right: auto;
+		display: block;
+	p{
+		@include rem(27, margin-top);
+		@include rem(18);
+		line-height: 1.5;
+	}
+	a {
+		text-transform: none;
+		text-decoration: none;
+		@include rem(18);
+		&:nth-child(1){
+			color: #FFFCC0;
+			&:hover { color: #FFF8A4; }
+			&:active { color: #FFF383; }
+		}
+		&:nth-child(2){
+			color: #4EA7FF;
+			&:hover { color: lighten(#4EA7FF, 15%); }
+			&:active { color: darken(#4EA7FF, 15%); }
+		}
+	}
+}
+
+
+
 .svg-container {
 	float: left;
 	width: 100%;

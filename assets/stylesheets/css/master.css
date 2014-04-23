@@ -114,11 +114,7 @@ html.moon body {
   background: #020d54; }
 
 /* line 7, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/modules/_typography.scss */
-.about {
-  font-family: "Johnston ITC W01 Medium", "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
-
-/* line 10, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/modules/_typography.scss */
-.time {
+body {
   font-family: "Johnston ITC W01 Medium", "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
 
 /*
@@ -303,15 +299,146 @@ span#about {
   /* line 41, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   span#about:hover {
     cursor: help; }
+  /* line 44, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  span#about #close-pane {
+    border: 1px solid #076fe4;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #8ebcf1;
+    color: white;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: #4294f0;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4294f0), color-stop(100%, #0776f3));
+    background-image: -webkit-linear-gradient(#4294f0, #0776f3);
+    background-image: linear-gradient(#4294f0, #0776f3);
+    padding: 7px 18px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #0065d6;
+    background-clip: padding-box; }
+    /* line 79, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/bourbon/addons/_button.scss */
+    span#about #close-pane:hover:not(:disabled) {
+      box-shadow: inset 0 1px 0 0 #60a2ec;
+      cursor: pointer;
+      background-color: #2f87ea;
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2f87ea), color-stop(100%, #086fe3));
+      background-image: -webkit-linear-gradient(#2f87ea, #086fe3);
+      background-image: linear-gradient(#2f87ea, #086fe3); }
+    /* line 95, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/bourbon/addons/_button.scss */
+    span#about #close-pane:active:not(:disabled) {
+      border: 1px solid #076fe4;
+      box-shadow: inset 0 0 8px 4px #0868d3, inset 0 0 8px 4px #0868d3, 0 1px 1px 0 #eeeeee; }
+    /* line 38, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/bourbon/addons/_button.scss */
+    span#about #close-pane:disabled {
+      opacity: 0.5;
+      cursor: not-allowed; }
 
-/* line 45, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 49, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+.question.cloud {
+  z-index: 500;
+  background: #333;
+  position: fixed;
+  right: 1px;
+  right: 0.1rem;
+  top: 42%;
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: .5; }
+  /* line 58, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  .question.cloud:after, .question.cloud:before {
+    z-index: 499;
+    background: #333; }
+  /* line 63, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  .question.cloud span {
+    font-size: 30px;
+    font-size: 3rem;
+    color: #CCC;
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    z-index: 501;
+    position: fixed;
+    right: 35%;
+    top: 25%; }
+
+/* line 75, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+.question.cloud.hovered {
+  background: #CCC; }
+  /* line 78, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  .question.cloud.hovered:after, .question.cloud.hovered:before {
+    background: #CCC; }
+  /* line 82, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  .question.cloud.hovered span {
+    color: #000; }
+
+/* line 88, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+.pane {
+  transition: top 1s ease;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -100%;
+  z-index: 1000;
+  background: url(../../img/old_moon.png);
+  opacity: .99; }
+
+/* line 98, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+.pane.full {
+  transition: top 1s ease;
+  top: 0%; }
+
+/* line 103, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+.pane-content {
+  width: 40%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+  /* line 109, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  .pane-content p {
+    margin-top: 27px;
+    margin-top: 2.7rem;
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.5; }
+  /* line 114, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  .pane-content a {
+    text-transform: none;
+    text-decoration: none;
+    font-size: 18px;
+    font-size: 1.8rem; }
+    /* line 118, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+    .pane-content a:nth-child(1) {
+      color: #FFFCC0; }
+      /* line 120, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+      .pane-content a:nth-child(1):hover {
+        color: #FFF8A4; }
+      /* line 121, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+      .pane-content a:nth-child(1):active {
+        color: #FFF383; }
+    /* line 123, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+    .pane-content a:nth-child(2) {
+      color: #4EA7FF; }
+      /* line 125, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+      .pane-content a:nth-child(2):hover {
+        color: #9bcdff; }
+      /* line 126, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+      .pane-content a:nth-child(2):active {
+        color: #0181ff; }
+
+/* line 133, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 .svg-container {
   float: left;
   width: 100%;
   height: 70%;
   text-align: center; }
 
-/* line 51, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 139, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 svg#sunner {
   width: 80%;
   z-index: -1;
@@ -319,28 +446,28 @@ svg#sunner {
   filter: grayscale(0%);
   transition: all .5s ease-in-out; }
 
-/* line 62, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 150, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 .grayed svg#sunner {
   -webkit-filter: grayscale(80%);
   filter: grayscale(80%); }
 
-/* line 67, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 155, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 .time-container {
   float: left;
   width: 100%;
   height: 15%; }
 
-/* line 73, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 161, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 .time {
   font-size: 28px;
   font-size: 2.8rem;
   display: none;
   z-index: 2;
   text-align: center; }
-  /* line 79, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 167, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .time .time-inner {
     padding: 5px; }
-  /* line 83, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 171, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .time #howlong {
     display: inline-block;
     color: #333;
@@ -348,54 +475,54 @@ svg#sunner {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none; }
-    /* line 91, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+    /* line 179, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
     .time #howlong:hover {
       cursor: help; }
 
 @media screen and (min-width: 716px) and (max-width: 900px) {
-  /* line 98, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 186, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .about, .time {
     font-size: 18px;
     font-size: 1.8rem; } }
 @media screen and (min-width: 601px) and (max-width: 715px) {
-  /* line 103, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 191, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .about, .time {
     font-size: 16px;
     font-size: 1.6rem; } }
 @media screen and (max-width: 600px) {
-  /* line 108, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 196, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .about, .time {
     font-size: 14px;
     font-size: 1.4rem; }
 
-  /* line 111, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 199, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .about-container {
     width: 100%;
     height: 25%;
     position: static; }
-    /* line 115, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+    /* line 203, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
     .about-container .about {
       left: 0;
       bottom: 0;
       margin-top: 3%; }
 
-  /* line 121, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 209, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .svg-container {
     width: 100%;
     height: 50%; }
-    /* line 124, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+    /* line 212, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
     .svg-container svg {
       width: 100%; }
 
-  /* line 128, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 216, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .time-container {
     width: 100%;
     height: 25%; }
-    /* line 131, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+    /* line 219, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
     .time-container .time {
       right: 0;
       bottom: 0; } }
-/* line 140, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 228, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 svg circle:nth-child(2n) {
   stroke-dasharray: 500;
   stroke-dashoffset: 1000;
@@ -403,7 +530,7 @@ svg circle:nth-child(2n) {
   -webkit-animation: dash 3s ease alternate infinite;
   animation: dash 3s ease alternate infinite; }
 
-/* line 147, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 235, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 svg circle:nth-child(2n+1) {
   stroke-dasharray: 500;
   stroke-dashoffset: 1000;
@@ -411,53 +538,53 @@ svg circle:nth-child(2n+1) {
   -webkit-animation: dash 4s ease alternate infinite;
   animation: dash 4s ease alternate infinite; }
 
-/* line 154, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 242, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 svg circle:nth-child(6) {
   fill: #FFFFFF; }
 
-/* line 158, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 246, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 .sun-selector {
   opacity: 0; }
 
-/* line 163, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 251, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 .moon svg circle {
   -webkit-animation: none;
   animation: none;
   stroke-linecap: square;
   transition: stroke 4s ease, stroke-dasharray 4s ease, stroke-dashoffset 4s ease;
   -webkit-timing-function: linear; }
-  /* line 171, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 259, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .moon svg circle:nth-child(1) {
     stroke-dasharray: 270, 300;
     stroke-dashoffset: 0;
     stroke: #DDD;
     -webkit-animation-iteration-count: 1; }
-  /* line 178, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 266, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .moon svg circle:nth-child(2) {
     stroke-dasharray: 210, 300;
     stroke-dashoffset: 0;
     stroke: #CCC;
     -webkit-animation-iteration-count: 1; }
-  /* line 185, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 273, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .moon svg circle:nth-child(3) {
     stroke-dasharray: 150, 300;
     stroke-dashoffset: 0;
     stroke: #BBB;
     -webkit-animation-iteration-count: 1; }
-  /* line 192, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 280, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .moon svg circle:nth-child(4) {
     stroke-dasharray: 70, 300;
     stroke-dashoffset: 0;
     stroke: #AAA;
     -webkit-animation-iteration-count: 1; }
-  /* line 199, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 287, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .moon svg circle:nth-child(5) {
     stroke-dasharray: 60, 210;
     stroke-dashoffset: 0;
     stroke: #4ea7ff;
     stroke-width: 0;
     -webkit-animation-iteration-count: 1; }
-  /* line 206, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 294, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .moon svg circle:nth-child(6) {
     stroke-dasharray: 200, 150;
     stroke-dashoffset: 0;
@@ -466,25 +593,25 @@ svg circle:nth-child(6) {
     fill: none;
     -webkit-animation-iteration-count: 1; }
 
-/* line 218, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+/* line 306, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
 .day svg circle {
   transition: stroke 4s ease; }
-  /* line 220, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 308, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .day svg circle:nth-child(1) {
     stroke: #ffed92; }
-  /* line 223, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 311, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .day svg circle:nth-child(2) {
     stroke: #fff2a7; }
-  /* line 226, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 314, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .day svg circle:nth-child(3) {
     stroke: #fff6ba; }
-  /* line 229, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 317, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .day svg circle:nth-child(4) {
     stroke: #fffad0; }
-  /* line 232, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 320, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .day svg circle:nth-child(5) {
     stroke: #fffef1; }
-  /* line 235, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
+  /* line 323, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_shame.scss */
   .day svg circle:nth-child(6) {
     stroke: white;
     fill: white; }
@@ -499,135 +626,137 @@ svg circle:nth-child(6) {
   left: 0;
   right: 0;
   bottom: 0; }
-  /* line 11, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-  .cloudlayer .cloud {
-    z-index: 0;
-    width: 350px;
-    height: 120px;
-    position: fixed;
-    right: -20%;
-    top: 10%;
+
+/* line 13, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloud {
+  z-index: 0;
+  width: 350px;
+  height: 120px;
+  position: fixed;
+  right: -20%;
+  top: 10%;
+  background: #FFFFCC;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  opacity: .2; }
+  /* line 24, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+  .cloud:after, .cloud:before {
+    content: '';
+    position: absolute;
     background: #FFFFCC;
+    z-index: -1; }
+  /* line 30, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+  .cloud:before {
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    right: 50px;
+    -webkit-border-radius: 200px;
+    border-radius: 200px; }
+  /* line 38, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+  .cloud:after {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: 50px;
     -webkit-border-radius: 100px;
-    border-radius: 100px;
-    opacity: .2; }
-    /* line 22, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:after, .cloudlayer .cloud:before {
-      content: '';
-      position: absolute;
-      background: #FFFFCC;
-      z-index: -1; }
-    /* line 28, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:before {
-      width: 180px;
-      height: 180px;
-      top: -90px;
-      right: 50px;
-      -webkit-border-radius: 200px;
-      border-radius: 200px; }
-    /* line 36, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:after {
-      width: 100px;
-      height: 100px;
-      top: -50px;
-      left: 50px;
-      -webkit-border-radius: 100px;
-      border-radius: 100px; }
-    /* line 46, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(2) {
-      margin-top: 20%;
-      -webkit-transform: scale(0.8);
-      -moz-transform: scale(0.8);
-      -ms-transform: scale(0.8);
-      -o-transform: scale(0.8);
-      transform: scale(0.8); }
-    /* line 50, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(3) {
-      margin-top: 33%;
-      -webkit-transform: scale(0.7);
-      -moz-transform: scale(0.7);
-      -ms-transform: scale(0.7);
-      -o-transform: scale(0.7);
-      transform: scale(0.7); }
-    /* line 54, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(4) {
-      margin-bottom: 13%;
-      -webkit-transform: scale(0.75);
-      -moz-transform: scale(0.75);
-      -ms-transform: scale(0.75);
-      -o-transform: scale(0.75);
-      transform: scale(0.75); }
-    /* line 58, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(5) {
-      margin-bottom: 44%;
-      -webkit-transform: scale(0.6);
-      -moz-transform: scale(0.6);
-      -ms-transform: scale(0.6);
-      -o-transform: scale(0.6);
-      transform: scale(0.6); }
-    /* line 62, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(1n + 5) {
-      right: -100px; }
-    /* line 65, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(6) {
-      margin-top: 30%; }
-    /* line 68, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(7) {
-      margin-top: 40%; }
-    /* line 71, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(8) {
-      margin-bottom: 17%; }
-    /* line 74, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(9) {
-      margin-bottom: 35%; }
-    /* line 77, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-    .cloudlayer .cloud:nth-child(10) {
-      margin-top: 45%; }
+    border-radius: 100px; }
+
+/* line 49, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(2) {
+  margin-top: 20%;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8); }
+/* line 53, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(3) {
+  margin-top: 33%;
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  transform: scale(0.7); }
+/* line 57, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(4) {
+  margin-bottom: 13%;
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  -ms-transform: scale(0.75);
+  -o-transform: scale(0.75);
+  transform: scale(0.75); }
+/* line 61, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(5) {
+  margin-bottom: 44%;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  -o-transform: scale(0.6);
+  transform: scale(0.6); }
+/* line 65, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(1n + 5) {
+  right: -100px; }
+/* line 68, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(6) {
+  margin-top: 30%; }
+/* line 71, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(7) {
+  margin-top: 40%; }
+/* line 74, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(8) {
+  margin-bottom: 17%; }
+/* line 77, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(9) {
+  margin-bottom: 35%; }
+/* line 80, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
+.cloudlayer .cloud:nth-child(10) {
+  margin-top: 45%; }
 
 /* line 86, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-.cloud:nth-child(1).animate-cloudToLeft {
+.cloudlayer .cloud:nth-child(1).animate-cloudToLeft {
   -webkit-animation: moveLeft 120s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   -moz-animation: moveLeft 120s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   animation: moveLeft 120s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
 
 /* line 86, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-.cloud:nth-child(2).animate-cloudToLeft {
+.cloudlayer .cloud:nth-child(2).animate-cloudToLeft {
   -webkit-animation: moveLeft 150s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   -moz-animation: moveLeft 150s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   animation: moveLeft 150s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
 
 /* line 86, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-.cloud:nth-child(3).animate-cloudToLeft {
+.cloudlayer .cloud:nth-child(3).animate-cloudToLeft {
   -webkit-animation: moveLeft 180s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   -moz-animation: moveLeft 180s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   animation: moveLeft 180s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
 
 /* line 86, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-.cloud:nth-child(4).animate-cloudToLeft {
+.cloudlayer .cloud:nth-child(4).animate-cloudToLeft {
   -webkit-animation: moveLeft 210s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   -moz-animation: moveLeft 210s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   animation: moveLeft 210s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
 
 /* line 91, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-.cloud:nth-child(6).animate-cloudToLeft {
+.cloudlayer .cloud:nth-child(6).animate-cloudToLeft {
   -webkit-animation: moveLeftsecond 300s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   -moz-animation: moveLeftsecond 300s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   animation: moveLeftsecond 300s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
 
 /* line 91, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-.cloud:nth-child(7).animate-cloudToLeft {
+.cloudlayer .cloud:nth-child(7).animate-cloudToLeft {
   -webkit-animation: moveLeftsecond 330s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   -moz-animation: moveLeftsecond 330s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   animation: moveLeftsecond 330s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
 
 /* line 91, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-.cloud:nth-child(8).animate-cloudToLeft {
+.cloudlayer .cloud:nth-child(8).animate-cloudToLeft {
   -webkit-animation: moveLeftsecond 360s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   -moz-animation: moveLeftsecond 360s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   animation: moveLeftsecond 360s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }
 
 /* line 91, /Users/miriam/Documents/Web/doyouwanttostandinthesunlightlikeanasshole/assets/stylesheets/sass/partials/_clouds.scss */
-.cloud:nth-child(9).animate-cloudToLeft {
+.cloudlayer .cloud:nth-child(9).animate-cloudToLeft {
   -webkit-animation: moveLeftsecond 390s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   -moz-animation: moveLeftsecond 390s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
   animation: moveLeftsecond 390s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; }

@@ -2,14 +2,31 @@
 var about = $(".about span");
 var output = $("#howlong");
 var sun = $(".sun-selector");
+var cloudparts = $(".question.cloud, .question.cloud::after, .question.cloud::before");
 
 // Prime everything.
 
 $(function(){
-	$(".cloud").addClass("animate-cloudToLeft");
+	$(".cloudlayer .cloud").addClass("animate-cloudToLeft");
 	sun.click(geolocate);
-    var log = new Date();
-    console.log("clicked: " + log);
+    $(".question.cloud").hover(
+        function() {
+            //console.log("hovered");
+            $(".question.cloud").addClass("hovered");
+            //console.log(cloudparts);
+        }, function() {
+            $(".question.cloud").removeClass("hovered");
+            //console.log("unhovered");
+        }
+    );
+    $(".question.cloud").click(function(){
+        console.log("clicked");
+        $(".pane").addClass("full");
+    });
+    $("#close-pane").click(function(){
+        $(".pane").removeClass("full");
+    })
+
 });
 // Grab geolocation data & pass the Position object
 // created by the geolocation API to the sunsetCalc function

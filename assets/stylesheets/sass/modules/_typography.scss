@@ -4,9 +4,6 @@ $johnston--medium:'Johnston ITC W01 Medium';
 $din-family: $din, "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 $johnston-family: $johnston--medium, "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 
-.about{
-	font-family: $johnston-family;
-}
-.time {
+body {
 	font-family: $johnston-family;
 }
