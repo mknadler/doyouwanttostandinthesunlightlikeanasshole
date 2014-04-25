@@ -41,8 +41,8 @@ var sunsetCalc = function(position){
 	var longitude = position.coords.longitude;
 	var now = new Date();
 	var all_times = SunCalc.getTimes(new Date(), latitude, longitude);
-	var sunset_time = all_times.sunset;
-	var sunrise_time = all_times.sunrise;
+	var sunset_time = all_times.dusk;
+	var sunrise_time = all_times.dawn;
 	// figure out the difference between
 	// now and sunset 
 	// & convert it to hours, minutes, and seconds
