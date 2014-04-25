@@ -12,69 +12,56 @@
        <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>-->
         <script type="text/javascript" src="http://fast.fonts.net/jsapi/4496878a-f825-4676-b89f-0e268045a821.js"></script>
     </head>
-    <!-- Preloader -->
-<!--<script type="text/javascript">
-    //<![CDATA[
-        $(window).load(function() { // makes sure the whole site is loaded
-            $('#status').fadeOut(); // will first fade out the loading animation
-            $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-            $('body').delay(350).css({'overflow':'visible'});
-        })
-    //]]>
-</script>-->
-    <body class="initial">
-        <!-- Preloader -->
-        <section class="pane">
-
-<div class="pane-content">
-        <p>This website was made so that I could learn how to make this website! Specifically, I was interested in playing with geolocation (don't worry: we don't hold on to your location data), CSS filters, and super-hacky SVG animations.</p>
-        <p>This is still a work in progress, so if your browser is not supported, or if you notice a glaring bug, check back later!</p>
-        <div class="closecloud cloud"><span>return</span></div>
-    </div>
-    
-</section>
-
-        <div class="wrapper">
-            <div class="cloudlayer">
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-            </div>
-            <div class="about-container">
-                <div class="about">
-                <p><span id="about">Want to know how much sunlight you have left today? click the sun!</span></p>
-                </div>
-            </div>
-<div class="opencloud cloud"><span>about</span></div>
-<div class="circle"></div>
-<div class="svg-container">
-<svg id="sunner" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
-    <circle fill="none" stroke="#FFE045" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="120.3"/>
-    <circle fill="none" stroke="#FFE75A" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="100.8"/>
-    <circle fill="none" stroke="#FFED6E" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="83"/>
-    <circle fill="none" stroke="#FFF383" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="63.5"/>
-    <circle fill="none" stroke="#FFF8A4" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="45.2"/>
-    <circle fill="none" stroke="#FFFCC0" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="26.9"/>
-    <circle class="sun-selector" cx="249.2" stroke-width="20" cy="243" r="130"/>
-</svg>
-</div>
-
-
-            <div class="time-container">
-                <div class="time">
-                <p class="time-inner"><p id="howlong"></p></p>
-                </div>
-            </div>
+<body class="initial">
+    <section class="pane">
+        <div class="pane-content">
+            <p>This website was made so that I could learn how to make this website! Specifically, I was interested in playing with geolocation (don't worry: we don't hold on to your location data), CSS filters, and super-hacky SVG animations.</p>
+            <p>This is still a work in progress, so if your browser is not supported, or if you notice a glaring bug, check back later!</p>
+            <div class="closecloud cloud"><span>return</span></div>
         </div>
-        <script src="assets/js/suncalc.min.js"></script>
-        <script src="assets/js/app.min.js?1.07"></script>
-    </body>
+    </section>
+    <div class="wrapper">
+        <div class="cloudlayer">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
+    <div class="about-container">
+        <div class="about">
+            <p><span id="about">Want to know how much sunlight you have left today? click the sun!</span></p>
+        </div>
+    </div>
+    <div class="opencloud cloud">
+        <span>about</span>
+    </div>
+    <div class="circle"></div>
+    <div class="svg-container">
+        <svg id="sunner" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+            <circle fill="none" stroke="#FFE045" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="120.3"/>
+            <circle fill="none" stroke="#FFE75A" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="100.8"/>
+            <circle fill="none" stroke="#FFED6E" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="83"/>
+            <circle fill="none" stroke="#FFF383" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="63.5"/>
+            <circle fill="none" stroke="#FFF8A4" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="45.2"/>
+            <circle fill="none" stroke="#FFFCC0" stroke-width="20" stroke-miterlimit="10" cx="249.2" cy="243" r="26.9"/>
+            <circle class="sun-selector" cx="249.2" stroke-width="20" cy="243" r="130"/>
+    </svg>
+    </div>
+    <div class="time-container">
+        <div class="time">
+            <p class="time-inner">
+                <p id="howlong"></p>
+            </p>
+        </div>
+    </div>
+</div>
+<script src="assets/js/suncalc.min.js"></script>
+<script src="assets/js/app.min.js?1.07"></script>
+</body>
 </html>
