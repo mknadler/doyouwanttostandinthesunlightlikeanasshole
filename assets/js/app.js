@@ -43,7 +43,6 @@ var sunsetCalc = function(position){
 	var all_times = SunCalc.getTimes(new Date(), latitude, longitude);
 	var sunset_time = all_times.sunset;
 	var sunrise_time = all_times.sunrise;
-	
 	// figure out the difference between
 	// now and sunset 
 	// & convert it to hours, minutes, and seconds
@@ -55,6 +54,7 @@ var sunsetCalc = function(position){
 
     // Output the time + change css classes
     // depending on whether it is daytime or nighttime
+    console.log("difference: " + difference + "; sunset: " + sunset_time + " ; now: " + now + " ; sunrise: " + sunrise_time);
     if (sunrise_time > now) {
         var difference = sunrise_time - now;
         seconds = Math.floor(difference / 1000);
@@ -65,8 +65,9 @@ var sunsetCalc = function(position){
         $(".svg-container").addClass("moon");
         $("html").addClass("moon");
         $(".about span, #howlong").css("color", "#DDD");
-    } else if (difference > 0) {
-        difference = now - sunset_time;
+    } else if (difference < 0) {
+        console.log("diff < 0");
+        difference = difference * -1;
         seconds = Math.floor(difference / 1000);
         numhours = Math.floor(seconds / 3600);
         numminutes = Math.floor((seconds % 3600) / 60);
@@ -79,7 +80,8 @@ var sunsetCalc = function(position){
         $(".svg-container").addClass("moon");
     	$("html").addClass("moon");
     	$(".about span, #howlong").css("color", "#DDD");
-    } else if (numhours <=2 && numhours >= 1) {
+    }
+    else if (numhours <=2 && numhours >= 1) {
     	output.text("Better hurry! You have " + numhours + " hours, " + numminutes + " minutes, & " + numseconds + " seconds of sunlight left!");
     	$(".svg-container").addClass("day");
     } else if (numhours < 1) {
