@@ -418,7 +418,8 @@ svg#sunner {
   z-index: -1;
   -webkit-filter: none;
   filter: none;
-  transition: all .5s ease-in-out; }
+  transition: all .5s ease-in-out;
+  height: 100%; }
 
 @media screen and (max-width: 600px) {
   .svg-container {

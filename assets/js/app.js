@@ -51,7 +51,15 @@ var sunsetCalc = function(position){
     var numhours = Math.floor(seconds / 3600);
     var numminutes = Math.floor((seconds % 3600) / 60);
     var numseconds = Math.floor((seconds % 3600) % 60);
-
+    console.log(
+        all_times.dawn + ": dawn, " +
+        all_times.sunrise + ": sunrise," +
+        all_times.solarNoon + ": solar noon, " +
+        all_times.dusk + ": dusk, " + 
+        all_times.sunset + ": sunset ,    " +
+        all_times.sunriseEnd + " to " + all_times.goldenHourEnd + " is morning golden hour, " + 
+        all_times.goldenHour + " to " + all_times.sunsetStart + " is evening golden hour."
+    );
     // Output the time + change css classes
     // depending on whether it is daytime or nighttime
     console.log("difference: " + difference + "; sunset: " + sunset_time + " ; now: " + now + " ; sunrise: " + sunrise_time);
