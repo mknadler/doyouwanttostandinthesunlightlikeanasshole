@@ -51,25 +51,14 @@ var sunsetCalc = function(position){
     var numhours = Math.floor(seconds / 3600);
     var numminutes = Math.floor((seconds % 3600) / 60);
     var numseconds = Math.floor((seconds % 3600) % 60);
-    console.log(
-        all_times.dawn + ": dawn, " +
-        all_times.sunrise + ": sunrise," +
-        all_times.solarNoon + ": solar noon, " +
-        all_times.dusk + ": dusk, " + 
-        all_times.sunset + ": sunset ,    " +
-        all_times.sunriseEnd + " to " + all_times.goldenHourEnd + " is morning golden hour, " + 
-        all_times.goldenHour + " to " + all_times.sunsetStart + " is evening golden hour."
-    );
-    // Output the time + change css classes
-    // depending on whether it is daytime or nighttime
-    console.log("difference: " + difference + "; sunset: " + sunset_time + " ; now: " + now + " ; sunrise: " + sunrise_time);
+
     if (sunrise_time > now) {
         var difference = sunrise_time - now;
         seconds = Math.floor(difference / 1000);
         numhours = Math.floor(seconds / 3600);
         numminutes = Math.floor((seconds % 3600) / 60);
         numseconds = Math.floor((seconds % 3600) % 60);
-    	output.text("The sun is rising in " + numhours + " hours & " + numminutes + " minutes.");
+    	output.text("Dawn is coming in " + numhours + " hours & " + numminutes + " minutes.");
         $(".svg-container").addClass("moon");
         $("html").addClass("moon");
         $(".about span, #howlong").css("color", "#DDD");
@@ -81,27 +70,71 @@ var sunsetCalc = function(position){
         numminutes = Math.floor((seconds % 3600) / 60);
         numseconds = Math.floor((seconds % 3600) % 60);
         if (numhours >= 1) {
-            output.text("Oh no! The sun set " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds ago!");	
+            output.text("Oh no! Dusk began " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds ago!");	
     	} else {
-            output.text("Oh no! The sun set " + numminutes + " minutes and " + numseconds + " seconds ago!");  
+            output.text("Oh no! Dusk began " + numminutes + " minutes and " + numseconds + " seconds ago!");  
         }
         $(".svg-container").addClass("moon");
     	$("html").addClass("moon");
     	$(".about span, #howlong").css("color", "#DDD");
     }
     else if (numhours <=2 && numhours >= 1) {
-    	output.text("Better hurry! You have " + numhours + " hours, " + numminutes + " minutes, & " + numseconds + " seconds of sunlight left!");
+    	output.text("Better hurry! You have " + numhours + " hours, " + numminutes + " minutes, & " + numseconds + " seconds until dusk!");
     	$(".svg-container").addClass("day");
+        barGraph(all_times, numhours, numminutes);
     } else if (numhours < 1) {
-    	output.text("Better hurry! You have " + numminutes + " minutes, & " + numseconds + " seconds of sunlight left!");	
+    	output.text("Better hurry! You have " + numminutes + " minutes, & " + numseconds + " seconds until dusk!");	
     	$(".svg-container").addClass("day");
+        barGraph(all_times, numhours, numminutes);
     } else if (numhours >= 2) {
-    	output.text("You have " + numhours + " hours, " + numminutes + " minutes, & " + numseconds + " seconds of sunlight left!");
+    	output.text("You have " + numhours + " hours, " + numminutes + " minutes, & " + numseconds + " seconds until dusk!");
     	$(".svg-container").addClass("day");
+        barGraph(all_times, numhours, numminutes);
     }
 
     // Hide the top text, show the bottom text
     $(".time").css("display", "inline-block");
     output.fadeIn(1200);
     about.empty();
+}
+
+var barGraph = function (all_times, numhours, numminutes){
+    console.log("barGraph ran");
+
+    var toTotalMinutes = new Function("hours", "minutes", "return hours*60 + minutes");
+    var timesArray = [all_times.dawn, all_times.dusk, all_times.night, all_times.nightEnd, all_times.solarNoon]
+    for (var i = 0; i<=4; i++) { 
+        timesArray[i] = toTotalMinutes(timesArray[i].getHours(),timesArray[i].getMinutes());
+    } 
+    var dawn = timesArray[0];
+    var dusk = timesArray[1];
+    var night = timesArray[2];
+    var nightEnd = timesArray[3];
+    var solarNoon = timesArray[4];
+
+    var now = new Date();
+    var nowhrs = (60 * now.getHours()) + now.getMinutes();
+
+    var total_bar_width = night - nightEnd;
+    var dawn_percentage = (dawn-nightEnd)/total_bar_width;
+    var dusk_percentage = (dusk-nightEnd)/total_bar_width;
+    var noon_percentage = (solarNoon-nightEnd)/total_bar_width;
+
+    var now_percentage = (nowhrs-dawn)/total_bar_width;
+
+    before_dawn = 100 * dawn_percentage;
+    dawn_to_noon = 100 * (noon_percentage-dawn_percentage);
+    noon_to_dusk = 100 * (dusk_percentage-noon_percentage);
+    at_dusk = Math.round((1 - (before_dawn+dawn_to_noon+noon_to_dusk)));
+        console.log(at_dusk)
+    duskbar = 100-(-1*at_dusk);
+    adjusted_dusk = 100 - (before_dawn+dawn_to_noon+noon_to_dusk);
+
+    $(".bargraph").fadeIn();
+    $("#before-dawn").width(before_dawn+"%");
+    $("#dawn-to-noon").width(dawn_to_noon+"%");
+    $("#noon-to-dusk").width(noon_to_dusk+"%");
+    $("#dusk").width(adjusted_dusk+"%");
+    $("#elapsed").width(100*now_percentage+"%");
+
 }

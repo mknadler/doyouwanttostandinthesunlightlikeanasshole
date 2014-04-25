@@ -3,6 +3,8 @@
 	width: 100%;
 	height: 15%;
 	@extend .center-parent;
+	position: absolute;
+	bottom: 5%;
 }
 
 .time {
@@ -34,6 +36,7 @@
 	.time-container {
 		width: 100%;
 		height: 25%;
+		bottom: 0;
 		.time {
 			right: 0;
 			position: relative;

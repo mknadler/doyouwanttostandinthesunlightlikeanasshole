@@ -310,7 +310,9 @@ body {
 .time-container {
   float: left;
   width: 100%;
-  height: 15%; }
+  height: 15%;
+  position: absolute;
+  bottom: 5%; }
 
 .time {
   font-size: 28px;
@@ -337,7 +339,8 @@ body {
 @media screen and (max-width: 600px) {
   .time-container {
     width: 100%;
-    height: 25%; }
+    height: 25%;
+    bottom: 0; }
     .time-container .time {
       right: 0;
       position: relative;
@@ -765,3 +768,51 @@ svg circle:nth-child(6) {
     -webkit-animation: moveLeftsecond 570s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
     -moz-animation: moveLeftsecond 570s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
     animation: moveLeftsecond 570s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; } }
+.bargraph {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background: red;
+  display: none; }
+
+.bargraph div {
+  height: 100%;
+  width: 25%;
+  float: left;
+  z-index: 1;
+  position: relative; }
+  .bargraph div:nth-child(1) {
+    background: #666;
+    /*&:after{
+    	content: "dawn";
+    	position: absolute;
+    	right: -10px;
+    	top: -20px;
+    	background: white;
+    	padding: 3px;
+    
+    }
+    &:before{
+    	content: '';
+    	position: absolute;
+    	right: -5px;
+    	top: -2px;
+    	width:10px;
+    	height: 5px;
+    	background: red;
+    }
+    */ }
+  .bargraph div:nth-child(2) {
+    background: #fff47b; }
+  .bargraph div:nth-child(3) {
+    background: #fff47b; }
+  .bargraph div:nth-child(4) {
+    background: #666; }
+
+#elapsed {
+  background: #249CFF;
+  opacity: .8;
+  z-index: 2;
+  position: absolute;
+  left: 0; }
