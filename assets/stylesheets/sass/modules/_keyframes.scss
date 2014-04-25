@@ -16,6 +16,17 @@
   }
 }
 
+@include media($small){
+  @include keyframes(moveLeftsecond){
+  0% {
+    right: -60%;
+  }
+  100% {
+    right: 105%;
+  }
+}
+}
+
 @include keyframes(dash){
   from {
     stroke-dashoffset: 1200;

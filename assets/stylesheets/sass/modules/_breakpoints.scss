@@ -1,4 +1,4 @@
 $full: new-breakpoint(min-width 1161px);
-$medium-large: new-breakpoint(min-width 716px max-width 900px);
-$medium: new-breakpoint(min-width 601px max-width 715px);
+$medium-large: new-breakpoint(min-width 716px);
+$medium: new-breakpoint(min-width 601px);
 $small: new-breakpoint(max-width 600px);

@@ -45,50 +45,98 @@
 		}
 }
 
-.cloudlayer .cloud {
-	&:nth-child(2){
-		margin-top: 20%;
-		@include transform(scale(.8));
+@include media($medium){
+	.cloudlayer .cloud {
+		&:nth-child(2){
+			margin-top: 20%;
+			@include transform(scale(.8));
+		}
+		&:nth-child(3){
+			margin-top: 33%;
+			@include transform(scale(.7));
+		}
+		&:nth-child(4){
+			margin-bottom: 13%;
+			@include transform(scale(.75));
+		}
+		&:nth-child(5){
+			margin-bottom: 44%;
+			@include transform(scale(.6));
+		}
+		&:nth-child(1n + 5){
+			right: -20%;
+		}
+		&:nth-child(6) {
+			margin-top: 30%;
+		}
+		&:nth-child(7) {
+			margin-top: 40%;
+		}
+		&:nth-child(8) {
+			margin-bottom: 17%;
+		}
+		&:nth-child(9) {
+			margin-bottom: 35%;
+		}
+		&:nth-child(10) {
+			margin-top: 45%;
+		}
 	}
-	&:nth-child(3){
-		margin-top: 33%;
-		@include transform(scale(.7));
-	}
-	&:nth-child(4){
-		margin-bottom: 13%;
-		@include transform(scale(.75));
-	}
-	&:nth-child(5){
-		margin-bottom: 44%;
-		@include transform(scale(.6));
-	}
-	&:nth-child(1n + 5){
-		right: -100px;
-	}
-	&:nth-child(6) {
-		margin-top: 30%;
-	}
-	&:nth-child(7) {
-		margin-top: 40%;
-	}
-	&:nth-child(8) {
-		margin-bottom: 17%;
-	}
-	&:nth-child(9) {
-		margin-bottom: 35%;
-	}
-	&:nth-child(10) {
-		margin-top: 45%;
+}
+@include media($small) {
+		.cloudlayer .cloud {
+		&:nth-child(1){
+			@include transform(scale(.4));
+		}
+		&:nth-child(2){
+			margin-top: 30%;
+			@include transform(scale(.5));
+		}
+		&:nth-child(3){
+			margin-top: 80%;
+			@include transform(scale(.4));
+		}
+		&:nth-child(4){
+			margin-bottom: 60%;
+			@include transform(scale(.3));
+		}
+		&:nth-child(5){
+			margin-bottom: 20%;
+			@include transform(scale(.2));
+		}
+		&:nth-child(1n + 5){
+			right: -30%;
+			@include transform(scale(.4));
+		}
+		&:nth-child(6) {
+			margin-top: 70%;
+		}
+		&:nth-child(7) {
+			margin-top: 20%;
+		}
+		&:nth-child(8) {
+			margin-top: 40%;
+		}
+		&:nth-child(9) {
+			margin-bottom: 40%;
+		}
+		&:nth-child(10) {
+			margin-top: 90%;
+		}
 	}
 }
 
-@for $i from 1 to 5 {
+
+
+@include media($medium){
+	@for $i from 1 to 5 {
 	.cloudlayer .cloud:nth-child(#{$i}).animate-cloudToLeft{
-		@include animation(moveLeft (90.0s + (30 * $i)) cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+		@include animation(moveLeft (90.0s + (50 * $i)) cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
 	}
 }
 @for $i from 6 to 10 {
 	.cloudlayer .cloud:nth-child(#{$i}).animate-cloudToLeft{
-		@include animation(moveLeftsecond (120.0s + (30 * $i)) cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
+		@include animation(moveLeftsecond (120.0s + (50 * $i)) cubic-bezier(0.5, 0.2, 0.3, 1.0) infinite);
 	}
+}
 }

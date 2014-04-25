@@ -1,9 +1,21 @@
 $din:'DIN Next W01 Medium';
 $johnston--medium:'Johnston ITC W01 Medium';
+$johnston--light: 'Johnston ITC W01 Light';
+$johnston--light__italic: 'JohnstonITCW01-LightIta';
 
 $din-family: $din, "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-$johnston-family: $johnston--medium, "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+
+@mixin johnston($which:medium){
+	@if $which == medium {
+		font-family: $johnston--medium, "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	} @else if $which == light {
+		font-family: $johnston--light, "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	} @else if $which == italic {
+		font-family: $johnston--light__italic, "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+		font-style: italic;
+	}
+}
 
 body {
-	font-family: $johnston-family;
+	@include johnston;
 }

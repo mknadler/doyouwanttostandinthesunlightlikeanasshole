@@ -2,28 +2,28 @@
 var about = $(".about span");
 var output = $("#howlong");
 var sun = $(".sun-selector");
-var cloudparts = $(".question.cloud, .question.cloud::after, .question.cloud::before");
+var cloudparts = $(".opencloud.cloud, .opencloud.cloud::after, .opencloud.cloud::before");
 
 // Prime everything.
 
 $(function(){
 	$(".cloudlayer .cloud").addClass("animate-cloudToLeft");
 	sun.click(geolocate);
-    $(".question.cloud").hover(
+    $(".opencloud.cloud").hover(
         function() {
             //console.log("hovered");
-            $(".question.cloud").addClass("hovered");
+            //$(".opencloud.cloud").addClass("hovered");
             //console.log(cloudparts);
         }, function() {
-            $(".question.cloud").removeClass("hovered");
+            //$(".opencloud.cloud").removeClass("hovered");
             //console.log("unhovered");
         }
     );
-    $(".question.cloud").click(function(){
+    $(".opencloud.cloud").click(function(){
         console.log("clicked");
         $(".pane").addClass("full");
     });
-    $("#close-pane").click(function(){
+    $(".closecloud.cloud").click(function(){
         $(".pane").removeClass("full");
     })
 
@@ -87,11 +87,17 @@ var sunsetCalc = function(position){
     if (sunrise_time > now) {
     	output.text("It isn't even sunrise yet!");
     } else if (difference < 0) {
-    	numhours = numhours * -1;
-      	numminutes = numminutes * -1;
-      	numseconds = numseconds * -1;
-      	output.text("Oh no! The sun set " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds ago!");	
-    	$(".svg-container").addClass("moon");
+        difference = now - sunset_time;
+        seconds = Math.floor(difference / 1000);
+        numhours = Math.floor(seconds / 3600);
+        numminutes = Math.floor((seconds % 3600) / 60);
+        numseconds = Math.floor((seconds % 3600) % 60);
+        if (numhours >= 1) {
+            output.text("Oh no! The sun set " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds ago!");	
+    	} else {
+            output.text("Oh no! The sun set " + numminutes + " minutes and " + numseconds + " seconds ago!");  
+        }
+        $(".svg-container").addClass("moon");
     	$("html").addClass("moon");
     	$(".about span, #howlong").css("color", "#DDD");
     } else if (numhours <=2 && numhours >= 1) {
