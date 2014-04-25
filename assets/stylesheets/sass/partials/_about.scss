@@ -1,0 +1,57 @@
+.about-container {
+	width: 90%;
+	height: 15%;
+	text-align: center;
+	@extend .center-parent;
+	margin: 0 auto;
+}
+.about {
+	@extend .center-inner;
+	@include rem(28);
+	@include rem(20, padding-left);
+	text-align: left;
+	line-height: 1.5;
+	@include rem(40, padding-top);
+}
+span#about {
+		transition: color 5s ease, opacity 5s ease;
+		color: #333;
+		opacity: .8;
+		@include rem(30, padding-top);
+		&:hover {
+			cursor: help;
+		}
+	}
+
+@include media($small){
+	.about {
+		@include rem(12);
+	}
+	.about-container{
+		width: 100%;
+		height: 25%;
+		position: static;
+		.about {
+			left: 0;
+			bottom: 0;
+			margin-top: -20%;
+			text-align: center;
+			@include rem(12);
+			@include rem(0 20, padding);
+		}
+	}
+}
+
+@include media($medium){
+	.about {
+		@include rem(18);
+		padding: 0;
+		margin-top: 0;
+	}
+}
+
+@include media($medium-large){
+	.about {
+		@include rem(20);
+	}
+}

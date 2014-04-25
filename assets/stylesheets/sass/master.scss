@@ -1,28 +1,25 @@
 // Import Bourbon & Neat
-@import "bourbon/bourbon"; // or "bourbon" when in Rails
-@import "neat/neat"; // or "neat" when in Rails
+@import "bourbon/bourbon";
+@import "neat/neat";
 
 // Import modules
-//@import "modules/animate";
 @import "modules/reset";
 @import "modules/colors";
-@import "modules/all";
 @import "modules/breakpoints";
+@import "modules/mixins";
 @import "modules/typography";
-@import "modules/mirismixins";
 @import "modules/keyframes";
 
 // Import Partials
-@import "partials/shame";
-@import "partials/clouds";
+@import "partials/structure";
 
+@import "partials/infopane";
 
+@import "partials/output";
+@import "partials/about";
 
+@import "partials/sun-general";
+@import "partials/sun-animate";
 
-
-/** Notes
-
-Bourbon have a clearfix in bourbon/addons. just use @include clearfix;
-
-**/
-
+@import "partials/clouds-button";
+@import "partials/clouds-background";

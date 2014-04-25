@@ -1,0 +1,85 @@
+.opencloud.cloud, .closecloud.cloud {
+	z-index: 1100;
+	background: #333;
+	position: fixed;
+	@include rem(-80, right);
+	top: 42%;
+	@include transform(scale(.4));
+	opacity: .5;
+	&:after, &:before {
+		z-index: 499;
+		background: #333;
+	}
+	span {
+		@include rem(30);
+		color: #CCC;
+		@include transform(scale(1.5));
+		z-index: 501;
+		position: fixed;
+		right: 35%;
+		top: 25%;
+	}
+	@include media($medium-large){
+		@include transform(scale(.5));
+		@include rem(-80, right);
+	}
+	@include media($medium){
+		@include rem(-60, right);
+	}
+	@include media($small) {
+		@include transform(scale(.25));
+		@include rem(-120, right);
+	}
+}
+
+.opencloud.cloud:hover{
+	background: #CCC;
+	&:after, &:before{
+		background: #CCC;
+	}
+	span {
+		color: #000;
+	}
+}
+
+.closecloud.cloud {
+	background: darken($lightblue, 10%);
+	&:after, &:before {
+		background: darken($lightblue, 10%);
+	}
+	&:hover{
+		background: $lightblue;
+			&:after, &:before {
+				background: $lightblue;
+			}
+	}
+	span {
+		@include johnston;
+		color: #333;
+	}
+	position: absolute;
+	top: 120%;
+	left: 15%;
+	@include media($small){
+		top: 95%;
+	}
+	@include media($medium){
+		top: 120%;
+	}
+}
+
+.moon .closecloud.cloud {
+	background: #222;
+	&:after, &:before {
+		background: #222;
+	}
+	&:hover {
+		background: #444;
+		&:after, &:before{
+			background: #444;
+		}
+	}
+	span {
+		color: #CCC;
+	}
+}

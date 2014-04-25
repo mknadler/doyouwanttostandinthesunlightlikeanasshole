@@ -1,0 +1,95 @@
+svg circle:nth-child(2n) {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 1000;
+  -moz-animation: dash 3s ease alternate infinite;
+  -webkit-animation: dash 3s ease alternate infinite;
+  animation: dash 3s ease alternate infinite;
+}
+
+svg circle:nth-child(2n+1) {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 1000;
+  -moz-animation: dash 3s ease alternate infinite;
+  -webkit-animation: dash 4s ease alternate infinite;
+  animation: dash 4s ease alternate infinite;
+}
+
+svg circle:nth-child(6) {
+	fill: #FFFFFF;
+}
+
+
+.moon svg {
+	circle {
+		-webkit-animation: none;
+		animation: none;
+		stroke-linecap: square;
+		transition: stroke 4s ease, stroke-dasharray 4s ease, stroke-dashoffset 4s ease;
+		-webkit-timing-function: linear;
+		&:nth-child(1){
+			stroke-dasharray: 270, 300;
+			stroke-dashoffset: 0;
+			stroke: #DDD;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(2){
+			stroke-dasharray: 210, 300;
+			stroke-dashoffset: 0;
+			stroke: #CCC;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(3){
+			stroke-dasharray: 150, 300;
+			stroke-dashoffset: 0;
+			stroke: #BBB;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(4){
+			stroke-dasharray: 70, 300;
+			stroke-dashoffset: 0;
+			stroke: #AAA;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(5){
+			stroke-dasharray: 60, 210;
+			stroke-dashoffset: 0;
+			stroke: $c-background;
+			stroke-width: 0;
+					-webkit-animation-iteration-count: 1;
+		}
+		&:nth-child(6){
+			stroke-dasharray: 200, 150;
+			stroke-dashoffset: 0;
+			stroke: $c-background;
+			stroke-width: 0;
+			fill: none;
+					-webkit-animation-iteration-count: 1;
+		}
+	}
+}
+
+.day svg {
+	circle {
+		transition: stroke 4s ease;
+		&:nth-child(1){
+		stroke: lighten(#FFE045, 15%);
+		}
+		&:nth-child(2){
+		stroke: lighten(#FFE75A, 15%);
+		}
+		&:nth-child(3){
+		stroke: lighten(#FFED6E, 15%);
+		}
+		&:nth-child(4){
+		stroke: lighten(#FFF383, 15%);
+		}
+		&:nth-child(5){
+		stroke: lighten(#FFF8A4, 15%);
+		}
+		&:nth-child(6){
+		stroke: lighten(#FFFCC0, 15%);
+		fill: lighten(#fffcc0, 15%);
+		}				
+
+	}
+}

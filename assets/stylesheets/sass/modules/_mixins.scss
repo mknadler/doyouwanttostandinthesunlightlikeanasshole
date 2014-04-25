@@ -1,0 +1,48 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+// REM with Pixel Fallback //
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+// from scut
+// call @include rem(#);
+	// project-specific base value
+		$scut-rem-base: 10 !default;
+	//dependencies
+		@function scut-strip-unit ($num){@return $num / ($num * 0 + 1);}
+		@function scut-rem ($pixels){$rem-vals: (); @each $val in $pixels {
+			$val-in-rems: scut-strip-unit($val) / $scut-rem-base * 1rem;
+		    $rem-vals: append($rem-vals, $val-in-rems);}
+		    @if length($rem-vals) == 1 {@return nth($rem-vals, 1);}
+		    @else {@return $rem-vals;}}
+	// the important one!
+		@mixin rem (
+		  $pixels,
+		  $property: font-size
+		) {
+		  $px-vals: null;
+		  @each $val in $pixels {
+		    $val-in-px: scut-strip-unit($val) * 1px;
+		    $px-vals: append($px-vals, $val-in-px);
+		  }
+		  $rem-vals: scut-rem($pixels);
+		  #{$property}: $px-vals;
+		  #{$property}: $rem-vals;
+		}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+// VERTICALLY CENTER AN ELEMENT //
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+/* adapted from http://css-tricks.com/centering-in-the-unknown/
+	@extend .center-outer on the container div
+	@extend .center-inner on the div w/ centered content 
+*/
+.center-parent {
+	.text-align: center;
+	&:before {
+		content: '';
+  		display: inline-block;
+  		height: 100%;
+  		vertical-align: middle;
+	}
+}
+.center-inner {
+	display: inline-block;
+  	vertical-align: middle;
+}

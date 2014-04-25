@@ -1,0 +1,56 @@
+.time-container {
+	float: left;
+	width: 100%;
+	height: 15%;
+	@extend .center-parent;
+}
+
+.time {
+	@extend .center-inner;
+	@include rem(28);
+	display: none;
+	z-index: 2;
+	text-align: center;
+	@include media($small){
+		@include rem(12);
+	}
+	.time-inner {
+		padding: 5px;
+	}
+	#howlong {
+		display: inline-block;
+		color: #333;
+		opacity: .8;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		&:hover {
+			cursor: help;
+		}
+	}
+}
+
+@include media($small){
+	.time-container {
+		width: 100%;
+		height: 25%;
+		.time {
+			right: 0;
+			position: relative;
+			bottom: 80%;
+			@include rem(0 25, padding);
+		}
+	}
+}
+
+@include media($medium){
+	.time {
+		@include rem(18);
+	}
+}
+
+@include media($medium-large){
+	.time {
+		@include rem(22);
+	}
+}
