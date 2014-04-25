@@ -56,8 +56,16 @@ var sunsetCalc = function(position){
     // Output the time + change css classes
     // depending on whether it is daytime or nighttime
     if (sunrise_time > now) {
-    	output.text("It isn't even sunrise yet!");
-    } else if (difference < 0) {
+        var difference = sunrise_time - now;
+        seconds = Math.floor(difference / 1000);
+        numhours = Math.floor(seconds / 3600);
+        numminutes = Math.floor((seconds % 3600) / 60);
+        numseconds = Math.floor((seconds % 3600) % 60);
+    	output.text("The sun is rising in " + numhours + " hours & " + numminutes + " minutes.");
+        $(".svg-container").addClass("moon");
+        $("html").addClass("moon");
+        $(".about span, #howlong").css("color", "#DDD");
+    } else if (difference > 0) {
         difference = now - sunset_time;
         seconds = Math.floor(difference / 1000);
         numhours = Math.floor(seconds / 3600);
@@ -72,13 +80,13 @@ var sunsetCalc = function(position){
     	$("html").addClass("moon");
     	$(".about span, #howlong").css("color", "#DDD");
     } else if (numhours <=2 && numhours >= 1) {
-    	output.text("Better hurry! You have " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds of sunlight left!");
+    	output.text("Better hurry! You have " + numhours + " hours, " + numminutes + " minutes, & " + numseconds + " seconds of sunlight left!");
     	$(".svg-container").addClass("day");
     } else if (numhours < 1) {
-    	output.text("Better hurry! You have " + numminutes + " minutes, and " + numseconds + " seconds of sunlight left!");	
+    	output.text("Better hurry! You have " + numminutes + " minutes, & " + numseconds + " seconds of sunlight left!");	
     	$(".svg-container").addClass("day");
     } else if (numhours >= 2) {
-    	output.text("You have " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds of sunlight left!");
+    	output.text("You have " + numhours + " hours, " + numminutes + " minutes, & " + numseconds + " seconds of sunlight left!");
     	$(".svg-container").addClass("day");
     }
 
