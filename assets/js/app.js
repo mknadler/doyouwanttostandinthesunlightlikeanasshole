@@ -14,7 +14,6 @@ $(function(){
     $(".closecloud.cloud").click(function(){
         $(".pane").removeClass("full");
     })
-
 });
 
 // Grab geolocation data & pass the Position object
@@ -46,6 +45,52 @@ var sunsetCalc = function(position){
 	// figure out the difference between
 	// now and sunset 
 	// & convert it to hours, minutes, and seconds
+/*
+    // add a day: now.setDate(now.getDate()+1);
+    var now = new Date();
+    var now_times = SunCalc.getTimes(new Date(), latitude, longitude);
+    var tomorrow = new Date();
+    tomorrow.setDate(now.getDate()+1);
+    var tomorrow_times = SunCalc.getTimes(tomorrow, latitude, longitude);
+
+    console.log("Now " + now);
+    console.log("Now dawn " + now_times.dawn);
+    console.log("Now dusk " + now_times.dusk);
+    console.log("Tomorrow " + tomorrow);
+    console.log("Tomorrow dawn " + tomorrow_times.dawn);
+    console.log("Tomorrow dusk " + tomorrow_times.dusk);
+
+    // SunCalc parses hour 0 (aka midnight -> 1am) as part of the previous day
+
+    var difference = 0;
+
+    if (now.getHours() != 0) {
+        if (now > now_times.dawn && now_times.dusk > now){
+            console.log("In between dawn and dusk");
+            difference = now_times.dusk - now;
+        } else if (now_times.dawn > now && now_times.dusk > now){
+            console.log("Between midnight and dawn");
+            difference = now_times.dawn - now;
+        } else if (now > now_times.dusk && now > now_times.dawn) {
+            console.log("Between dusk and midnight");
+            difference = tomorrow_times.dawn - now;
+        }
+    } else {
+        console.log("zero");
+        /*
+        now: apr 27 12:30AM
+        tomorrow.dawn: apr 27 6ish am 
+        console.log("Between midnight and dawn");
+        difference = tomorrow_times.dawn - now;
+    }
+
+    //write new function that takes as arguments:
+    // the difference    &    whether it's night or day
+
+    console.log(Math.floor(difference/1000/3600) + " hours, " + 
+    Math.floor(((difference/1000)%3600)/60) + " minutes of sunlight left.");
+*/
+    
 	var difference = sunset_time - now;
     var seconds = Math.floor(difference / 1000);
     var numhours = Math.floor(seconds / 3600);
@@ -91,7 +136,7 @@ var sunsetCalc = function(position){
     	$(".svg-container").addClass("day");
         barGraph(all_times, numhours, numminutes);
     }
-
+    
     // Hide the top text, show the bottom text
     $(".time").css("display", "inline-block");
     output.fadeIn(1200);
