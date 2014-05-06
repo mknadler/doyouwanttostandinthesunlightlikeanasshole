@@ -108,7 +108,7 @@ var sunsetCalc = function(position){
         $("html").addClass("moon");
         $(".about span, #howlong").css("color", "#DDD");
     } else if (difference < 0) {
-        console.log("diff < 0");
+        //console.log("diff < 0");
         difference = difference * -1;
         seconds = Math.floor(difference / 1000);
         numhours = Math.floor(seconds / 3600);
@@ -144,7 +144,7 @@ var sunsetCalc = function(position){
 }
 
 var barGraph = function (all_times, numhours, numminutes){
-    console.log("barGraph ran");
+    //console.log("barGraph ran");
 
     var toTotalMinutes = new Function("hours", "minutes", "return hours*60 + minutes");
     var timesArray = [all_times.dawn, all_times.dusk, all_times.night, all_times.nightEnd, all_times.solarNoon]

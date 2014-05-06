@@ -573,15 +573,15 @@ svg circle:nth-child(6) {
     background: #4ea7ff; }
     .closecloud.cloud:hover:after, .closecloud.cloud:hover:before {
       background: #4ea7ff; }
-  .closecloud.cloud span {
-    font-family: "Johnston ITC W01 Medium", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    color: #333; }
   @media screen and (max-width: 600px) {
     .closecloud.cloud {
       top: 95%; } }
   @media screen and (min-width: 601px) {
     .closecloud.cloud {
       top: 120%; } }
+  .closecloud.cloud span {
+    font-family: "Johnston ITC W01 Medium", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    color: #333; }
 
 .moon .closecloud.cloud {
   background: #222; }
@@ -783,30 +783,31 @@ svg circle:nth-child(6) {
   z-index: 1;
   position: relative; }
   .bargraph div:nth-child(1) {
-    background: #666;
-    /*&:after{
-    	content: "dawn";
-    	position: absolute;
-    	right: -10px;
-    	top: -20px;
-    	background: white;
-    	padding: 3px;
-    
-    }
-    &:before{
-    	content: '';
-    	position: absolute;
-    	right: -5px;
-    	top: -2px;
-    	width:10px;
-    	height: 5px;
-    	background: red;
-    }
-    */ }
+    background: #666; }
+    .bargraph div:nth-child(1):after {
+      content: "";
+      position: absolute;
+      right: -22px;
+      top: -30px;
+      width: 30px;
+      height: 30px;
+      background: url("../../img/bar-sun.svg");
+      background-repeat: no-repeat;
+      padding: 3px; }
   .bargraph div:nth-child(2) {
     background: #fff47b; }
   .bargraph div:nth-child(3) {
     background: #fff47b; }
+    .bargraph div:nth-child(3):after {
+      content: "";
+      position: absolute;
+      right: -22px;
+      top: -30px;
+      width: 30px;
+      height: 30px;
+      background: url("../../img/bar-moon.svg");
+      background-repeat: no-repeat;
+      padding: 3px; }
   .bargraph div:nth-child(4) {
     background: #666; }
 

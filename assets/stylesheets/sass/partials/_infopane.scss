@@ -8,6 +8,7 @@
 	background: url(../../img/nice_snow.png);
 	opacity: 0;
 }
+
 .pane.full {
 	transition: top 1s ease;
 	z-index: 1000;
@@ -26,10 +27,12 @@
 		width: 70%;
 		left: 15%;
 	}
+
 	@include media($medium-large){
 		width: 46%;
 		left: 30%;
 	}
+
 	p{
 		@include media($small) {
 			@include rem(14);
@@ -64,6 +67,7 @@
 			}
 		}
 	}
+	
 	a {
 		text-transform: none;
 		text-decoration: none;

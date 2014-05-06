@@ -10,6 +10,7 @@
 		z-index: 499;
 		background: #333;
 	}
+
 	span {
 		@include rem(30);
 		color: #CCC;
@@ -19,17 +20,21 @@
 		right: 35%;
 		top: 25%;
 	}
+
 	@include media($medium-large){
 		@include transform(scale(.5));
 		@include rem(-80, right);
 	}
+
 	@include media($medium){
 		@include rem(-60, right);
 	}
+
 	@include media($small) {
 		@include transform(scale(.25));
 		@include rem(-120, right);
 	}
+
 }
 
 .opencloud.cloud:hover{
@@ -44,27 +49,31 @@
 
 .closecloud.cloud {
 	background: darken($lightblue, 10%);
+	position: absolute;
+	top: 120%;
+	left: 15%;
+
 	&:after, &:before {
 		background: darken($lightblue, 10%);
 	}
+
 	&:hover{
 		background: $lightblue;
 			&:after, &:before {
 				background: $lightblue;
 			}
 	}
-	span {
-		@include johnston;
-		color: #333;
-	}
-	position: absolute;
-	top: 120%;
-	left: 15%;
+
 	@include media($small){
 		top: 95%;
 	}
 	@include media($medium){
 		top: 120%;
+	}
+
+	span {
+		@include johnston;
+		color: #333;
 	}
 }
 

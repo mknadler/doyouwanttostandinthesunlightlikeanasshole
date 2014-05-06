@@ -6,6 +6,7 @@
 	background: #666;
 	display: none;
 }
+
 .bargraph {
 	div {
 		height: 100%;
@@ -13,34 +14,41 @@
 		float: left;
 		z-index: 1;
 		position: relative;
+
 		&:nth-child(1){
 			background: #666;
-			/*&:after{
-				content: "dawn";
+			&:after{
+				content: "";
 				position: absolute;
-				right: -10px;
-				top: -20px;
-				background: white;
+				right: -22px;
+				top: -30px;
+				width: 30px;
+				height: 30px;
+				background: url("../../img/bar-sun.svg");
+				background-repeat: no-repeat;
 				padding: 3px;
-			
 			}
-			&:before{
-				content: '';
-				position: absolute;
-				right: -5px;
-				top: -2px;
-				width:10px;
-				height: 5px;
-				background: red;
-			}
-			*/
 		}
+
 		&:nth-child(2){
 			background: #fff47b;
 		}
+
 		&:nth-child(3){
 			background: #fff47b;
+			&:after {
+				content: "";
+				position: absolute;
+				right: -22px;
+				top: -30px;
+				width: 30px;
+				height: 30px;
+				background: url("../../img/bar-moon.svg");
+				background-repeat: no-repeat;
+				padding: 3px;
+			}
 		}
+
 		&:nth-child(4){
 			background: #666;
 		}
@@ -54,4 +62,3 @@
 	position: absolute;
 	left: 0;
 }
-//49A5FF .8
