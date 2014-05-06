@@ -29,6 +29,7 @@ var geolocate = function(isfirst) {
 }
 
 var sunsetCalc = function(position){
+
     $("body").css("cursor","auto");
     $("#sunner").animate({opacity: 1});
     output.hide();
@@ -36,108 +37,71 @@ var sunsetCalc = function(position){
 	// pull info from the Position object created by
 	// the geolocation; run them through Sun Calc;
 	// set up the variables we'll need later.
+
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
-	var now = new Date();
-	var all_times = SunCalc.getTimes(new Date(), latitude, longitude);
-	var sunset_time = all_times.dusk;
-	var sunrise_time = all_times.dawn;
-	// figure out the difference between
-	// now and sunset 
-	// & convert it to hours, minutes, and seconds
-/*
-    // add a day: now.setDate(now.getDate()+1);
     var now = new Date();
+
     var now_times = SunCalc.getTimes(new Date(), latitude, longitude);
+
     var tomorrow = new Date();
     tomorrow.setDate(now.getDate()+1);
     var tomorrow_times = SunCalc.getTimes(tomorrow, latitude, longitude);
 
-    console.log("Now " + now);
-    console.log("Now dawn " + now_times.dawn);
-    console.log("Now dusk " + now_times.dusk);
-    console.log("Tomorrow " + tomorrow);
-    console.log("Tomorrow dawn " + tomorrow_times.dawn);
-    console.log("Tomorrow dusk " + tomorrow_times.dusk);
+    var now_hours = now.getHours();
 
-    // SunCalc parses hour 0 (aka midnight -> 1am) as part of the previous day
+    var difference = null;
+    var remainder = {};
 
-    var difference = 0;
-
-    if (now.getHours() != 0) {
-        if (now > now_times.dawn && now_times.dusk > now){
-            console.log("In between dawn and dusk");
-            difference = now_times.dusk - now;
-        } else if (now_times.dawn > now && now_times.dusk > now){
-            console.log("Between midnight and dawn");
-            difference = now_times.dawn - now;
-        } else if (now > now_times.dusk && now > now_times.dawn) {
-            console.log("Between dusk and midnight");
-            difference = tomorrow_times.dawn - now;
-        }
-    } else {
-        console.log("zero");
-        /*
-        now: apr 27 12:30AM
-        tomorrow.dawn: apr 27 6ish am 
-        console.log("Between midnight and dawn");
+    if (now_hours == 0){
+        // N.B.: SunCalc parses hour 0 (aka midnight -> 1am) as part of the previous day
+        remainder.isDay = false;
         difference = tomorrow_times.dawn - now;
-    }
-
-    //write new function that takes as arguments:
-    // the difference    &    whether it's night or day
-
-    console.log(Math.floor(difference/1000/3600) + " hours, " + 
-    Math.floor(((difference/1000)%3600)/60) + " minutes of sunlight left.");
-*/
-    
-	var difference = sunset_time - now;
-    var seconds = Math.floor(difference / 1000);
-    var numhours = Math.floor(seconds / 3600);
-    var numminutes = Math.floor((seconds % 3600) / 60);
-    var numseconds = Math.floor((seconds % 3600) % 60);
-
-    if (sunrise_time > now) {
-        var difference = sunrise_time - now;
-        seconds = Math.floor(difference / 1000);
-        numhours = Math.floor(seconds / 3600);
-        numminutes = Math.floor((seconds % 3600) / 60);
-        numseconds = Math.floor((seconds % 3600) % 60);
-    	output.text("Dawn is coming in " + numhours + " hours & " + numminutes + " minutes.");
-        $(".svg-container").addClass("moon");
-        $("html").addClass("moon");
-        $(".about span, #howlong").css("color", "#DDD");
-    } else if (difference < 0) {
-        //console.log("diff < 0");
-        difference = difference * -1;
-        seconds = Math.floor(difference / 1000);
-        numhours = Math.floor(seconds / 3600);
-        numminutes = Math.floor((seconds % 3600) / 60);
-        numseconds = Math.floor((seconds % 3600) % 60);
-        if (numhours >= 1) {
-            output.text("Oh no! Dusk began " + numhours + " hours, " + numminutes + " minutes, and " + numseconds + " seconds ago!");	
-    	} else {
-            output.text("Oh no! Dusk began " + numminutes + " minutes and " + numseconds + " seconds ago!");  
+    } else {
+        if (now > now_times.dawn && now < now_times.dusk) {
+            remainder.isDay = true;
+            difference = now_times.dusk - now;
+        } else if (now > now_times.dusk && now > now_times.dawn) {
+            remainder.isDay = false;
+            difference = tomorrow_times.dawn - now;
+        } else if (now_times.dawn > now) {
+            remainder.isDay = false;
+            difference = now_times.dawn - now;
         }
-        $(".svg-container").addClass("moon");
-    	$("html").addClass("moon");
-    	$(".about span, #howlong").css("color", "#DDD");
     }
-    else if (numhours <=2 && numhours >= 1) {
-    	output.text("Better hurry! You have " + numhours + " hours, " + numminutes + " minutes, & " + numseconds + " seconds until dusk!");
-    	$(".svg-container").addClass("day");
-        barGraph(all_times, numhours, numminutes);
-    } else if (numhours < 1) {
-    	output.text("Better hurry! You have " + numminutes + " minutes, & " + numseconds + " seconds until dusk!");	
-    	$(".svg-container").addClass("day");
-        barGraph(all_times, numhours, numminutes);
-    } else if (numhours >= 2) {
-    	output.text("You have " + numhours + " hours, " + numminutes + " minutes, & " + numseconds + " seconds until dusk!");
-    	$(".svg-container").addClass("day");
-        barGraph(all_times, numhours, numminutes);
+
+    var convertToHoursMins = function(diff) {
+        remainder.inseconds = Math.floor(diff/1000);
+        remainder.numminutes = Math.floor((remainder.inseconds % 3600) / 60);
+        remainder.numhours = Math.floor(remainder.inseconds / 3600);
+        remainder.numseconds = Math.floor((remainder.inseconds % 3600) % 60);
+        return;
     }
-    
-    // Hide the top text, show the bottom text
+
+    convertToHoursMins(difference);
+
+    switch(remainder.isDay) {
+        case true : 
+            if (remainder.numhours > 0) {
+                output.text("You have " + remainder.numhours + " hours and " + remainder.numminutes + " minutes until dusk.");
+            } else {
+                output.text("You have " + remainder.numminutes + " minutes until dusk.");
+            }
+            $(".svg-container").addClass("day");
+            barGraph(now_times, remainder.numhours, remainder.numminutes);
+            break;
+        case false : 
+            if (remainder.numhours > 0) {
+                output.text("You have " + remainder.numhours + " hours and " + remainder.numminutes + " minutes until dawn.");
+            } else {
+                output.text("You have " + remainder.numminutes + " minutes until dawn.");
+            }
+            $(".svg-container").addClass("moon");
+            $("html").addClass("moon");
+            $(".about span, #howlong").css("color", "#DDD");
+            break;
+    }
+
     $(".time").css("display", "inline-block");
     output.fadeIn(1200);
     about.empty();
