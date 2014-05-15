@@ -1,4 +1,4 @@
-.about-container {
+.top-words {
 	width: 90%;
 	height: 15%;
 	text-align: center;
@@ -15,54 +15,199 @@
 	@include rem(40, padding-top);
 }
 
+.about {
+	text-align: center;
+	@include rem(30, padding-top);
+}
+
 span#about {
 		transition: color 5s ease, opacity 5s ease;
-		color: #333;
-		opacity: .8;
-		@include rem(30, padding-top);
+		color: $pale;
+		opacity: 1;
+		@include rem(28);
 		&:hover {
 			cursor: help;
 		}
 }
+.output {
+	@include rem(28);
+	opacity: 0;
+	//transition: color 5s ease, opacity 5s ease;
+	//color: none;
+	//border: none;
+	p{
+		border: none;
+	}
+	.number {
+		color: $accent-neutral;
+	}
+	.word {
+		color: $neutral;
+	}
+	.plus {
+		color: $accent-pale;
+	}
+	br{
+		display: none;
+	}
+}
+
+.bottom-words { 
+	position: relative;
+	color: $pale;
+	font-family: $adelle-sans;
+	@include rem(28);
+	p {
+		position: relative;
+		@include rem(28, bottom);
+		display: block;
+	}
+}
+
+.day .bottom-words {
+	color: $neutral;
+}
+
+.bottom-output {
+	width: 70%;
+	margin: 0 auto;
+	position: relative;
+	bottom: 10%;
+}
+
+.bar-words {
+	font-family: $adelle-sans;
+	color: $pale;
+	@include rem(16);
+	font-style: italic;
+	position: relative;
+	top: 20%;
+}
+
+.info-open.button {
+	background: $accent-neutral;
+	display: inline-block;
+	box-sizing: border-box;
+	font-family: $adelle-sans;
+	span {
+		display: inline-block;
+		text-transform: uppercase;
+		line-height: 1.5;
+		@include rem(16);
+		@include rem(14, padding);
+	}
+}
+
+.button-arrow {
+	color: $pale;
+}
+.button-words {
+	color: $pale;
+}
+
+.bar {
+	width: 100%;
+	height: 5%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	@include linear-gradient(45deg, $accent-neutral 0%, $neutral 20%, $neutral 80%, $accent-neutral 100%);
+	span {
+		color: $pale;
+		font-family: $adelle-sans;
+		font-style: italic;
+		text-transform: uppercase;
+		position: absolute;
+		@include rem(16);
+		top: 25%;
+		&:nth-of-type(1) {
+			left: 5%;
+		}
+		&:nth-of-type(2){
+			right: 5%;
+		}
+	}
+}
+
+svg#sunmarker {
+	position: absolute;
+	bottom: 100%;
+	left: 48.75%;
+	//width: 80%;
+	//height: 80%;
+}
+
+
 
 // MEDIA QUERIES
 
 @include media($small){
 
-	.about {
+	.about span#about {
 		@include rem(12);
+		line-height: .8;
+		br {
+			//display: none;
+		}
+	}
+
+	.output {
+		@include rem(14);
+	}
+
+	.about {
+		line-height: 1;
+		@include rem(10, padding-top);
 	}
 
 	.about-container{
 		width: 100%;
 		height: 25%;
 		position: static;
-		.about {
-			left: 0;
-			bottom: 0;
-			margin-top: -20%;
-			text-align: center;
+
+	}
+	.bar-words, #left-bar, #right-bar {
+		@include rem(12);
+	}
+	.info-open.button {
+		@include rem(20, margin-top);
+		span {
 			@include rem(12);
-			@include rem(0 20, padding);
+			@include rem(10, padding);
 		}
 	}
+
+	svg#sunmarker {
+		@include rem(28.8324, width);
+		@include rem(42.74176, height);
+	}
+.output br {
+	display: inline;
+}
+.output {
+	position: relative;
+	bottom: 50%;
+}
+.bar .bar-words {
+	display: none;
+}
 
 }
 
 @include media($medium){
-
-	.about {
+	.about span#about {
 		@include rem(18);
-		padding: 0;
-		margin-top: 0;
+		//padding: 0;
+		//margin-top: 0;
 	}
-
 }
 
 @include media($medium-large){
 
-	.about {
-		@include rem(20);
+	.about span#about {
+		@include rem(28);
+		@include rem(28, margin-top);
 	}
 	
 }

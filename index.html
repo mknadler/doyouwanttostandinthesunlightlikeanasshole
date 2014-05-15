@@ -20,12 +20,13 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
         <meta property="og:description" content="How much sunlight do you have left today?"/>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="assets/stylesheets/css/master.min.css?1.18">
+        <link rel="stylesheet" href="assets/stylesheets/css/master.css?1.21">
         
         <!-- jquery + modernizr + fonts -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
         <script src="assets/js/modernizr.min.js"></script>
-        <script type="text/javascript" src="http://fast.fonts.net/jsapi/4496878a-f825-4676-b89f-0e268045a821.js"></script>
+        <script type="text/javascript" src="//use.typekit.net/oba3gap.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
 
 <body class="initial">
@@ -33,10 +34,14 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
     <!-- the popup infopane / modal-ish thing -->
 <section class="pane">
     <div class="pane-content">
-        <p>This website was made so that I could learn how to make this website! Specifically, I was interested in playing with geolocation (I don't store your location data), CSS filters, and super-hacky SVG animations.</p>
-        <p>This is still a work in progress, so if your browser/device isn't supported, or if you notice a glaring bug, check back later!</p>
-        <p><a href="https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole">Click here to see the source code.</a></p>
-        <div class="closecloud cloud"><span>return</span></div>
+        <p>Using your latitude and longitude, How Much Sunlight tells you the difference between now and the nearest dawn or dusk.</p>
+        <p><a href="#" id="dawn-link">Dawn</a> is separate from sunrise, and <a href="#" id="dusk-link">dusk</a> is separate from sunset. At sunrise and sunset, the top edge of the sun is just barely visible over the horizon; at dawn and dusk, the sun is below the horizon, but there is enough light to see by.</p>
+        <p>Please note that these calculations are approximate, and, while they are more or less accurate, should not be considered reliable for serious situations.</p>
+        <p>If you would like to view the source code, please visit our <a href="#" id="github-link"><span id="git">Git</span>Hub</a> repository.</p>
+        <a class="info-close button" href="#">
+            <span class="button-words">go back</span>
+            <span class="button-arrow">></span>
+        </a>
     </div>
 </section>
 
@@ -57,14 +62,25 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
     </div>
 
     <!-- The top text + the cloud-button -->
-    <div class="about-container">
+    <div class="about-container top-words">
         <div class="about">
-            <p><span id="about">Want to know how much sunlight you have left today? click the sun!</span></p>
+            <span id="about">Want to know <br>how much sunlight <br>is left in your day? <br>Click the sun.</span>
+        </div>
+        <div class="output">
+            <p>
+                <span class="word word--outer">You have </span><br>
+                <span id="hours" class="number"></span><span class="word"> hours</span><span class="plus"> + </span>
+                <span id="minutes" class="number"></span><span class="word"> minutes</span><span class="plus"> + </span>
+                <span id="seconds" class="number"></span><span class="word"> seconds</span><br>
+                <span class="word word--outer" id="output-type"> until dusk.</span>
+            </p>
         </div>
     </div>
+    <!--
     <div class="opencloud cloud">
         <span>about</span>
     </div>
+-->
 
     <!-- The sun / moon -->
     <div class="circle"></div>
@@ -81,6 +97,7 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
     </div>
 
     <!-- The bottom text -->
+    <!--
     <div class="time-container">
         <div class="time">
             <p class="time-inner">
@@ -88,7 +105,27 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
             </p>
         </div>
     </div>
+    -->
+    <div class="bottom-output">
+        <a class="info-open button" href="#">
+            <span class="button-words">learn more</span>
+            <span class="button-arrow">></span>
+        </a>
+    </div>
+    <div class="bar">
+        <svg version="1.1" id="sunmarker" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="38.4432px" height="53.4272px" viewBox="0 0 48.054 66.784" enable-background="new 0 0 48.054 66.784" xml:space="preserve">
+            <g>
+                <path fill="#B2AE8F" d="M31.568,32.826l16.235-8.514l-9.984-5.643l3.292-10.663l-10.766,3.178L24.272,0l-0.057,0.14L24.15,0l-6.155,11.261L6.893,8.007l3.164,10.803L0,24.312l10.507,5.747L6.895,42.392l10.311-3.02l6.955,27.412l7.795-33.358l-0.387-0.517V32.826z M24.313,18.605c3.438,0,6.227,2.788,6.227,6.226c0,3.439-2.788,6.227-6.227,6.227c-3.44,0-6.227-2.788-6.227-6.227C18.087,21.393,20.873,18.605,24.313,18.605z"/>
+                <circle fill="none" cx="24.313" cy="24.831" r="6.226"/>
+            </g>
+        </svg>
 
+        <span id="left-bar">dawn</span>
+        <span id="right-bar">dusk</span>
+        <p class="bar-words"></p>
+     </div>
+
+<!--
 <div class="bargraph">
     <div id="before-dawn"></div>
     <div id="dawn-to-noon"></div>
@@ -96,12 +133,13 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
     <div id="dusk"></div>
     <div id="elapsed"></div>
 </div>
+-->
 
 </div> <!--end wrapper -->
 
 <!-- suncalc (god bless it) + my JS -->
 <script src="assets/js/suncalc.min.js"></script>
-<script src="assets/js/app.js?1.18"></script>
+<script src="assets/js/app.js?1.21"></script>
 
 </body>
 </html>

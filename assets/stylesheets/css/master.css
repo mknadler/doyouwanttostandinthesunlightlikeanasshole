@@ -85,18 +85,93 @@ input, select {
   vertical-align: middle; }
 
 body {
-  background: #4ea7ff; }
+  background: #a6cbcd; }
+
+body.day {
+  background: #fffce6; }
 
 html.moon body {
-  background: #020d54; }
+  background: #261a38; }
 
+html.moon span#about {
+  color: #261a38; }
+html.moon .number {
+  color: #b298a6; }
+html.moon .word {
+  color: #a7ccce; }
+html.moon .word--outer {
+  color: #8e69bc; }
+html.moon .plus {
+  color: #8e69bc; }
+html.moon .bottom-words {
+  color: #261a38; }
+html.moon .day .bottom-words {
+  color: #a7ccce; }
+html.moon .bar-words {
+  color: #261a38; }
+html.moon .info-open.button {
+  background: #a7ccce; }
+html.moon .button-arrow {
+  color: #261a38; }
+html.moon .button-words {
+  color: #261a38; }
+html.moon .bar {
+  background-color: #a7ccce;
+  background-image: -webkit-linear-gradient(-315deg, #a7ccce 0%, #8e69bc 20%, #8e69bc 80%, #a7ccce 100%);
+  background-image: linear-gradient(45deg,#a7ccce 0%, #8e69bc 20%, #8e69bc 80%, #a7ccce 100%); }
+html.moon .bar span {
+  color: #261a38; }
+html.moon .pane {
+  background: #261a38; }
+html.moon .pane-content p {
+  color: #8e69bc; }
+html.moon a#dawn-link {
+  color: #a7ccce; }
+  html.moon a#dawn-link:hover {
+    color: #b298a6; }
+  html.moon a#dawn-link:active {
+    color: #8e69bc; }
+html.moon a#dusk-link {
+  color: #b298a6; }
+  html.moon a#dusk-link:hover {
+    color: #a7ccce; }
+  html.moon a#dusk-link:active {
+    color: #8e69bc; }
+html.moon a#github-link {
+  color: #b298a6; }
+  html.moon a#github-link:hover {
+    color: #a7ccce; }
+  html.moon a#github-link:active {
+    color: #8e69bc; }
+    html.moon a#github-link:active #git {
+      color: #8e69bc; }
+  html.moon a#github-link #git {
+    color: #a7ccce; }
+html.moon .info-close.button {
+  background: #a7ccce; }
+
+/*
+$schemes: (
+    day: (
+        pale: #FFFCE6,
+        neutral:  #A6CBCD,
+        dark:   rgb(40,38,65)
+    ),
+    night: (
+        base:  $_color-base-grey,
+        light: lighten($_color-base-grey, 10%),
+        dark: darken($_color-base-grey, 10%)
+    )
+);
+
+*/
 /* adapted from http://css-tricks.com/centering-in-the-unknown/
 	@extend .center-outer on the container div
 	@extend .center-inner on the div w/ centered content 
 */
-.center-parent, .time-container, .about-container {
+.center-parent, .time-container, .top-words {
   .text-align: center; }
-  .center-parent:before, .time-container:before, .about-container:before {
+  .center-parent:before, .time-container:before, .top-words:before {
     content: '';
     display: inline-block;
     height: 100%;
@@ -107,7 +182,7 @@ html.moon body {
   vertical-align: middle; }
 
 body {
-  font-family: "Johnston ITC W01 Medium", "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
+  font-family: "adelle-sans"; }
 
 @-webkit-keyframes moveLeft {
   0% {
@@ -226,19 +301,19 @@ body {
   z-index: 0; }
 
 .pane {
-  font-family: "Johnston ITC W01 Light", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-family: "adelle-sans";
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   z-index: -100;
-  background: url(../../img/nice_snow.png);
-  opacity: 0; }
+  background: #fffce6;
+  opacity: 0;
+  overflow-y: scroll; }
 
 .pane.full {
-  transition: top 1s ease;
   z-index: 1000;
-  opacity: .95; }
+  opacity: 1; }
 
 .pane-content {
   width: 46%;
@@ -256,56 +331,91 @@ body {
     .pane-content {
       width: 46%;
       left: 30%; } }
-  @media screen and (max-width: 600px) {
-    .pane-content p {
-      font-size: 14px;
-      font-size: 1.4rem;
-      line-height: 1.5;
-      margin-top: 21px;
-      margin-top: 2.1rem; }
-      .pane-content p:first-child {
-        margin-top: 28px;
-        margin-top: 2.8rem; } }
-  @media screen and (min-width: 601px) {
-    .pane-content p {
-      font-size: 16px;
-      font-size: 1.6rem;
-      line-height: 1.5;
-      margin-top: 32px;
-      margin-top: 3.2rem; }
-      .pane-content p:first-child {
-        margin-top: 38px;
-        margin-top: 3.8rem; } }
-  @media screen and (min-width: 716px) {
-    .pane-content p {
-      font-size: 18px;
-      font-size: 1.8rem;
-      line-height: 1.5;
-      margin-top: 36px;
-      margin-top: 3.6rem; }
-      .pane-content p:first-child {
-        margin-top: 45px;
-        margin-top: 4.5rem; } }
-  @media screen and (min-width: 1161px) {
-    .pane-content p {
-      font-size: 22px;
-      font-size: 2.2rem;
-      line-height: 1.4;
-      margin-top: 33px;
-      margin-top: 3.3rem; }
-      .pane-content p:first-child {
-        margin-top: 99px;
-        margin-top: 9.9rem; } }
+  .pane-content p {
+    color: #b1ad8e; }
+    @media screen and (max-width: 600px) {
+      .pane-content p {
+        font-size: 14px;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        margin-top: 21px;
+        margin-top: 2.1rem; }
+        .pane-content p:first-child {
+          margin-top: 28px;
+          margin-top: 2.8rem; } }
+    @media screen and (min-width: 601px) {
+      .pane-content p {
+        font-size: 16px;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        margin-top: 32px;
+        margin-top: 3.2rem; }
+        .pane-content p:first-child {
+          margin-top: 38px;
+          margin-top: 3.8rem; } }
+    @media screen and (min-width: 716px) {
+      .pane-content p {
+        font-size: 18px;
+        font-size: 1.8rem;
+        line-height: 1.5;
+        margin-top: 36px;
+        margin-top: 3.6rem; }
+        .pane-content p:first-child {
+          margin-top: 45px;
+          margin-top: 4.5rem; } }
+    @media screen and (min-width: 1161px) {
+      .pane-content p {
+        font-size: 22px;
+        font-size: 2.2rem;
+        line-height: 1.4;
+        margin-top: 33px;
+        margin-top: 3.3rem; }
+        .pane-content p:first-child {
+          margin-top: 99px;
+          margin-top: 9.9rem; } }
+  .pane-content a#dawn-link {
+    color: #a6cbcd; }
+    .pane-content a#dawn-link:hover {
+      color: #b298a6; }
+    .pane-content a#dawn-link:active {
+      color: #b1ad8e; }
+  .pane-content a#dusk-link {
+    color: #b298a6; }
+    .pane-content a#dusk-link:hover {
+      color: #a6cbcd; }
+    .pane-content a#dusk-link:active {
+      color: #b1ad8e; }
+  .pane-content a#github-link {
+    color: #b298a6; }
+    .pane-content a#github-link:hover {
+      color: #a6cbcd; }
+    .pane-content a#github-link:active {
+      color: #b1ad8e; }
+      .pane-content a#github-link:active #git {
+        color: #b1ad8e; }
+    .pane-content a#github-link #git {
+      color: #a6cbcd; }
   .pane-content a {
     text-transform: none;
     text-decoration: none; }
-    .pane-content a:nth-child(1), .pane-content a:nth-child(2) {
-      color: #333;
-      border-bottom: 3px double #888; }
-      .pane-content a:nth-child(1):hover, .pane-content a:nth-child(2):hover {
-        border-bottom: 3px solid #888; }
-      .pane-content a:nth-child(1):active, .pane-content a:nth-child(2):active {
-        border-bottom: 3px solid #CCC; }
+  .pane-content .info-close.button {
+    background: #a6cbcd;
+    display: inline-block;
+    box-sizing: border-box;
+    font-family: "adelle-sans";
+    display: block;
+    width: 150px;
+    width: 15rem;
+    margin-top: 50px;
+    margin-top: 5rem; }
+    .pane-content .info-close.button span {
+      display: inline-block;
+      text-transform: uppercase;
+      line-height: 1.5;
+      font-size: 16px;
+      font-size: 1.6rem;
+      padding: 14px;
+      padding: 1.4rem; }
 
 .time-container {
   float: left;
@@ -355,7 +465,7 @@ body {
   .time {
     font-size: 22px;
     font-size: 2.2rem; } }
-.about-container {
+.top-words {
   width: 90%;
   height: 15%;
   text-align: center;
@@ -371,45 +481,173 @@ body {
   padding-top: 40px;
   padding-top: 4rem; }
 
-span#about {
-  transition: color 5s ease, opacity 5s ease;
-  color: #333;
-  opacity: .8;
+.about {
+  text-align: center;
   padding-top: 30px;
   padding-top: 3rem; }
+
+span#about {
+  transition: color 5s ease, opacity 5s ease;
+  color: #fffce6;
+  opacity: 1;
+  font-size: 28px;
+  font-size: 2.8rem; }
   span#about:hover {
     cursor: help; }
 
+.output {
+  font-size: 28px;
+  font-size: 2.8rem;
+  opacity: 0; }
+  .output p {
+    border: none; }
+  .output .number {
+    color: #b298a6; }
+  .output .word {
+    color: #a6cbcd; }
+  .output .plus {
+    color: #b1ad8e; }
+  .output br {
+    display: none; }
+
+.bottom-words {
+  position: relative;
+  color: #fffce6;
+  font-family: "adelle-sans";
+  font-size: 28px;
+  font-size: 2.8rem; }
+  .bottom-words p {
+    position: relative;
+    bottom: 28px;
+    bottom: 2.8rem;
+    display: block; }
+
+.day .bottom-words {
+  color: #a6cbcd; }
+
+.bottom-output {
+  width: 70%;
+  margin: 0 auto;
+  position: relative;
+  bottom: 10%; }
+
+.bar-words {
+  font-family: "adelle-sans";
+  color: #fffce6;
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-style: italic;
+  position: relative;
+  top: 20%; }
+
+.info-open.button {
+  background: #b298a6;
+  display: inline-block;
+  box-sizing: border-box;
+  font-family: "adelle-sans"; }
+  .info-open.button span {
+    display: inline-block;
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-size: 16px;
+    font-size: 1.6rem;
+    padding: 14px;
+    padding: 1.4rem; }
+
+.button-arrow {
+  color: #fffce6; }
+
+.button-words {
+  color: #fffce6; }
+
+.bar {
+  width: 100%;
+  height: 5%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  background-color: #b298a6;
+  background-image: -webkit-linear-gradient(-315deg, #b298a6 0%, #a6cbcd 20%, #a6cbcd 80%, #b298a6 100%);
+  background-image: linear-gradient(45deg,#b298a6 0%, #a6cbcd 20%, #a6cbcd 80%, #b298a6 100%); }
+  .bar span {
+    color: #fffce6;
+    font-family: "adelle-sans";
+    font-style: italic;
+    text-transform: uppercase;
+    position: absolute;
+    font-size: 16px;
+    font-size: 1.6rem;
+    top: 25%; }
+    .bar span:nth-of-type(1) {
+      left: 5%; }
+    .bar span:nth-of-type(2) {
+      right: 5%; }
+
+svg#sunmarker {
+  position: absolute;
+  bottom: 100%;
+  left: 48.75%; }
+
 @media screen and (max-width: 600px) {
-  .about {
+  .about span#about {
     font-size: 12px;
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    line-height: .8; }
+
+  .output {
+    font-size: 14px;
+    font-size: 1.4rem; }
+
+  .about {
+    line-height: 1;
+    padding-top: 10px;
+    padding-top: 1rem; }
 
   .about-container {
     width: 100%;
     height: 25%;
     position: static; }
-    .about-container .about {
-      left: 0;
-      bottom: 0;
-      margin-top: -20%;
-      text-align: center;
+
+  .bar-words, #left-bar, #right-bar {
+    font-size: 12px;
+    font-size: 1.2rem; }
+
+  .info-open.button {
+    margin-top: 20px;
+    margin-top: 2rem; }
+    .info-open.button span {
       font-size: 12px;
       font-size: 1.2rem;
-      padding: 0px 20px;
-      padding: 0rem 2rem; } }
+      padding: 10px;
+      padding: 1rem; }
+
+  svg#sunmarker {
+    width: 28.8324px;
+    width: 2.88324rem;
+    height: 42.74176px;
+    height: 4.27418rem; }
+
+  .output br {
+    display: inline; }
+
+  .output {
+    position: relative;
+    bottom: 50%; }
+
+  .bar .bar-words {
+    display: none; } }
 @media screen and (min-width: 601px) {
-  .about {
+  .about span#about {
     font-size: 18px;
-    font-size: 1.8rem;
-    padding: 0;
-    margin-top: 0; } }
+    font-size: 1.8rem; } }
 @media screen and (min-width: 716px) {
-  .about {
-    font-size: 20px;
-    font-size: 2rem; } }
+  .about span#about {
+    font-size: 28px;
+    font-size: 2.8rem;
+    margin-top: 28px;
+    margin-top: 2.8rem; } }
 .svg-container {
-  float: left;
   width: 100%;
   height: 70%;
   text-align: center; }
@@ -580,7 +818,7 @@ svg circle:nth-child(6) {
     .closecloud.cloud {
       top: 120%; } }
   .closecloud.cloud span {
-    font-family: "Johnston ITC W01 Medium", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    font-family: "adelle-sans";
     color: #333; }
 
 .moon .closecloud.cloud {
@@ -768,6 +1006,9 @@ svg circle:nth-child(6) {
     -webkit-animation: moveLeftsecond 570s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
     -moz-animation: moveLeftsecond 570s cubic-bezier(0.5, 0.2, 0.3, 1) infinite;
     animation: moveLeftsecond 570s cubic-bezier(0.5, 0.2, 0.3, 1) infinite; } }
+.moon .cloudlayer .cloud {
+  opacity: .05; }
+
 .bargraph {
   position: absolute;
   bottom: 0;

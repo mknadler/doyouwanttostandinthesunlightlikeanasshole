@@ -9,11 +9,134 @@ $c-text-color: $lightblue;
 $c-background: $lightblue;
 $c-background--night: $nightblue;
 
+
+//day 
+$pale: #FFFCE6; // yellow
+$accent-pale: #B1AD8E; // dark yellow
+$neutral: #A6CBCD; // blue
+$accent-neutral: #B298A6; // purple
+
+$daycolors: (
+    pale: #FFFCE6, // yellow
+    accent-pale: #B1AD8E, // dark yellow
+    neutral: #A6CBCD, // blue
+    accent-neutral: #B298A6 // purple
+);
+$nightcolors: (
+    pale: #261A38, // dark purp
+    accent-pale: #8E69BC, // light purp
+    neutral:  #A7CCCE, // teal
+    accent-neutral: #B298A6 // faded purp
+);
+
+
 body {
-	background: $c-background;
+    background: $neutral;
 }
+body.day {
+    background: $pale;
+}
+
+
+
+// Night Colors!
+
+// TODO: refactor. yeesh.
 
 html.moon body {
-	background: $c-background--night;
+    background: map-get($nightcolors, pale);
 }
 
+html.moon {
+
+
+span#about {
+    color: map-get($nightcolors, pale);
+}
+.number {
+    color: map-get($nightcolors, accent-neutral);
+}
+.word {
+    color: map-get($nightcolors, neutral);
+}
+.word--outer {
+    color: map-get($nightcolors, accent-pale)
+}
+.plus {
+    color: map-get($nightcolors, accent-pale);
+}
+.bottom-words {
+    color: map-get($nightcolors, pale);
+}
+.day .bottom-words {
+    color: map-get($nightcolors, neutral);
+}
+.bar-words {
+    color: map-get($nightcolors, pale);
+}
+
+.info-open.button {
+    background: map-get($nightcolors, neutral);
+}
+.button-arrow {
+    color: map-get($nightcolors, pale);
+}
+.button-words {
+    color: map-get($nightcolors, pale);
+}
+.bar {
+    @include linear-gradient(45deg, map-get($nightcolors,neutral) 0%, map-get($nightcolors,accent-pale) 20%, map-get($nightcolors,accent-pale) 80%, map-get($nightcolors,neutral) 100%);
+}
+.bar span {
+    color: map-get($nightcolors, pale);
+}
+.pane {
+    background: map-get($nightcolors, pale);
+}
+
+.pane-content p {
+    color: map-get($nightcolors, accent-pale);
+}
+a#dawn-link {
+    color: map-get($nightcolors, neutral);
+    &:hover{color: map-get($nightcolors, accent-neutral);}
+    &:active {color: map-get($nightcolors, accent-pale);}
+}
+a#dusk-link {
+    color: map-get($nightcolors, accent-neutral);
+    &:hover{color: map-get($nightcolors, neutral);}
+    &:active {color: map-get($nightcolors, accent-pale);}
+    }
+a#github-link{
+    color: map-get($nightcolors, accent-neutral);
+    &:hover{color: map-get($nightcolors, neutral);}
+    &:active {
+        color: map-get($nightcolors, accent-pale);
+        #git{color: map-get($nightcolors, accent-pale);}
+    }
+    #git {
+        color: map-get($nightcolors, neutral);
+        //&:active {color: $accent-pale;}
+    }
+}
+
+.info-close.button {
+    background: map-get($nightcolors, neutral);
+}
+
+}
+/*
+$schemes: (
+    day: (
+        pale: #FFFCE6,
+        neutral:  #A6CBCD,
+        dark:   rgb(40,38,65)
+    ),
+    night: (
+        base:  $_color-base-grey,
+        light: lighten($_color-base-grey, 10%),
+        dark: darken($_color-base-grey, 10%)
+    )
+);
+
+*/

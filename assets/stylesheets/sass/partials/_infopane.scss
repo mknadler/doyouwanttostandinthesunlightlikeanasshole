@@ -1,18 +1,20 @@
 .pane {
-	@include johnston(light);
+	font-family: $adelle-sans;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	top: 0;
 	z-index: -100;
-	background: url(../../img/nice_snow.png);
+	background: $pale;
+	//transition: opacity 1s ease;
 	opacity: 0;
+	overflow-y: scroll;
 }
 
 .pane.full {
-	transition: top 1s ease;
+	//transition: opacity .5s ease;
 	z-index: 1000;
-	opacity: .95;
+	opacity: 1;
 }
 
 .pane-content {
@@ -34,6 +36,7 @@
 	}
 
 	p{
+		color: $accent-pale;
 		@include media($small) {
 			@include rem(14);
 			line-height: 1.5;
@@ -68,18 +71,50 @@
 		}
 	}
 	
+
+	a#dawn-link {
+		color: $neutral;
+		&:hover{color: $accent-neutral;}
+		&:active {color: $accent-pale;}
+	}
+	a#dusk-link {
+		color: $accent-neutral;
+		&:hover{color: $neutral;}
+		&:active {color: $accent-pale;}
+		}
+	a#github-link{
+		color: $accent-neutral;
+		&:hover{color: $neutral;}
+		&:active {
+			color: $accent-pale;
+			#git{color: $accent-pale;}
+		}
+		#git {
+			color: $neutral;
+			//&:active {color: $accent-pale;}
+		}
+	}
 	a {
 		text-transform: none;
 		text-decoration: none;
-		&:nth-child(1), &:nth-child(2){
-			color: #333;
-			border-bottom: 3px double #888;
-			&:hover {
-				border-bottom: 3px solid #888;
-			}
-			&:active {
-				border-bottom: 3px solid #CCC;
-			}
-		}
+		
 	}
+
+	.info-close.button {
+	background: $neutral;
+	display: inline-block;
+	box-sizing: border-box;
+	font-family: $adelle-sans;
+	display: block;
+	@include rem(150, width);
+	@include rem(50, margin-top);
+	span {
+		display: inline-block;
+		text-transform: uppercase;
+		line-height: 1.5;
+		@include rem(16);
+		@include rem(14, padding);
+	}
+}
+
 }

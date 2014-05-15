@@ -8,10 +8,10 @@ var cloudparts = $(".opencloud.cloud, .opencloud.cloud::after, .opencloud.cloud:
 $(function(){
 	$(".cloudlayer .cloud").addClass("animate-cloudToLeft");
 	sun.click(geolocate);
-    $(".opencloud.cloud").click(function(){
+    $("a.info-open").click(function(){
         $(".pane").addClass("full");
     });
-    $(".closecloud.cloud").click(function(){
+    $("a.info-close").click(function(){
         $(".pane").removeClass("full");
     })
 });
@@ -19,7 +19,7 @@ $(function(){
 // Grab geolocation data & pass the Position object
 // created by the geolocation API to the sunsetCalc function
 var geolocate = function(isfirst) {
-    about.animate({"color": "#ffffcc", "opacity":"0"}, 400);
+    about.animate({"opacity":"0"}, 400);
     $("body").css("cursor", "wait");
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(sunsetCalc);
@@ -45,8 +45,11 @@ var sunsetCalc = function(position){
     var now_times = SunCalc.getTimes(new Date(), latitude, longitude);
 
     var tomorrow = new Date();
+    var yesterday = new Date();
     tomorrow.setDate(now.getDate()+1);
+    yesterday.setDate(now.getDate()-1);
     var tomorrow_times = SunCalc.getTimes(tomorrow, latitude, longitude);
+    var yesterday_times = SunCalc.getTimes(yesterday, latitude, longitude);
 
     var now_hours = now.getHours();
 
@@ -57,16 +60,20 @@ var sunsetCalc = function(position){
         // N.B.: SunCalc parses hour 0 (aka midnight -> 1am) as part of the previous day
         remainder.isDay = false;
         difference = tomorrow_times.dawn - now;
+        barGraph((tomorrow_times.dawn - now_times.dusk), (now - now_times.dusk), false);
     } else {
         if (now > now_times.dawn && now < now_times.dusk) {
             remainder.isDay = true;
             difference = now_times.dusk - now;
-        } else if (now > now_times.dusk && now > now_times.dawn) {
+            barGraph((now_times.dusk - now_times.dawn), (now-now_times.dawn), true);
+        } else if (now > now_times.dusk && now > now_times.dawn) { // dusk --> midnight
             remainder.isDay = false;
             difference = tomorrow_times.dawn - now;
-        } else if (now_times.dawn > now) {
+            barGraph((tomorrow_times.dawn - now_times.dusk), (now - now_times.dusk), false);
+        } else if (now_times.dawn > now) { // 1am --> dawn
             remainder.isDay = false;
             difference = now_times.dawn - now;
+            barGraph((now_times.dawn - yesterday_times.dusk), (now - yesterday_times.dusk), false);
         }
     }
 
@@ -83,67 +90,79 @@ var sunsetCalc = function(position){
     switch(remainder.isDay) {
         case true : 
             if (remainder.numhours > 0) {
-                output.text("You have " + remainder.numhours + " hours and " + remainder.numminutes + " minutes until dusk.");
+               $("#hours").text(remainder.numhours);
+               $("#minutes").text(remainder.numminutes);
+               $("#seconds").text(remainder.numseconds);
             } else {
-                output.text("You have " + remainder.numminutes + " minutes until dusk.");
+               $("#hours").text(remainder.numhours);
+               $("#minutes").text(remainder.numminutes);
+               $("#seconds").text(remainder.numseconds);
             }
             $(".svg-container").addClass("day");
-            barGraph(now_times, remainder.numhours, remainder.numminutes);
+            $("body").addClass("day");
             break;
         case false : 
             if (remainder.numhours > 0) {
-                output.text("You have " + remainder.numhours + " hours and " + remainder.numminutes + " minutes until dawn.");
+               $("#hours").text(remainder.numhours);
+               $("#minutes").text(remainder.numminutes);
+               $("#seconds").text(remainder.numseconds);
             } else {
-                output.text("You have " + remainder.numminutes + " minutes until dawn.");
+               $("#hours").text(remainder.numhours);
+               $("#minutes").text(remainder.numminutes);
+               $("#seconds").text(remainder.numseconds);
             }
             $(".svg-container").addClass("moon");
             $("html").addClass("moon");
-            $(".about span, #howlong").css("color", "#DDD");
+            $("#output-type").text(" until dawn.");
             break;
     }
 
     $(".time").css("display", "inline-block");
-    output.fadeIn(1200);
-    about.empty();
+    $(".bottom-words").remove();
+    $(".about").remove();
+    $(".output").animate({"opacity":"1"}, 400);
 }
 
-var barGraph = function (all_times, numhours, numminutes){
-    //console.log("barGraph ran");
+var barGraph = function (whole, elapsed, isDay){
 
-    var toTotalMinutes = new Function("hours", "minutes", "return hours*60 + minutes");
-    var timesArray = [all_times.dawn, all_times.dusk, all_times.night, all_times.nightEnd, all_times.solarNoon]
-    for (var i = 0; i<=4; i++) { 
-        timesArray[i] = toTotalMinutes(timesArray[i].getHours(),timesArray[i].getMinutes());
-    } 
-    var dawn = timesArray[0];
-    var dusk = timesArray[1];
-    var night = timesArray[2];
-    var nightEnd = timesArray[3];
-    var solarNoon = timesArray[4];
+    var elapsedPercent = Math.floor(100*(elapsed/whole));
+    var remainingPercent = 100-(Math.floor(100*(elapsed/whole)));
 
-    var now = new Date();
-    var nowhrs = (60 * now.getHours()) + now.getMinutes();
+    // given numerals 1 to 99, get text
+    function numToWords(num) {
+        var singleDigit = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+        var doubleDigit = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+        var teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+        var digits = num.toString().split('');
+        for (i = 0; i<digits.length; i++) {
+            digits[i] = +digits[i];
+        }
+        if (digits.length === 2){ // >10
+            if (digits[0] >= 2) { // >20
+                if (digits[1] != 0) { //NOT 20, 30, 40, 50, etc.
+                    var output = doubleDigit[digits[0]].toString() + "-" + singleDigit[digits[1]].toString();
+                } 
+                else { // IS 20, 30, 40, 50, etc.
+                    var output = doubleDigit[digits[0]].toString();
+                }
+            } 
+            else { // 10-19
+                var output = teens[digits[1]].toString();
+            }
+        } 
+        else if (digits.length === 1){ // 1 - 9
+            var output = singleDigit[digits[0]].toString();
+        }
+        return output;
+    }
+    if (isDay) {
+        $('.bar-words').text(numToWords(elapsedPercent) + " percent of the way to dusk");
+    } else {
+        $('.bar-words').text(numToWords(elapsedPercent) + " percent of the way to dawn");
+        $('#left-bar').text("dusk");
+        $('#right-bar').text("dawn");
+    }
 
-    var total_bar_width = night - nightEnd;
-    var dawn_percentage = (dawn-nightEnd)/total_bar_width;
-    var dusk_percentage = (dusk-nightEnd)/total_bar_width;
-    var noon_percentage = (solarNoon-nightEnd)/total_bar_width;
-
-    var now_percentage = (nowhrs-dawn)/total_bar_width;
-
-    before_dawn = 100 * dawn_percentage;
-    dawn_to_noon = 100 * (noon_percentage-dawn_percentage);
-    noon_to_dusk = 100 * (dusk_percentage-noon_percentage);
-    at_dusk = Math.round((1 - (before_dawn+dawn_to_noon+noon_to_dusk)));
-        console.log(at_dusk)
-    duskbar = 100-(-1*at_dusk);
-    adjusted_dusk = 100 - (before_dawn+dawn_to_noon+noon_to_dusk);
-
-    $(".bargraph").fadeIn();
-    $("#before-dawn").width(before_dawn+"%");
-    $("#dawn-to-noon").width(dawn_to_noon+"%");
-    $("#noon-to-dusk").width(noon_to_dusk+"%");
-    $("#dusk").width(adjusted_dusk+"%");
-    $("#elapsed").width(100*now_percentage+"%");
-
+    $('#sunmarker').css("left", elapsedPercent+"%");
+    $(".bar").animate({"opacity":"1"}, 2000);
 }
