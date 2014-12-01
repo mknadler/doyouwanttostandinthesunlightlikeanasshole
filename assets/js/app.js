@@ -1,79 +1,132 @@
-// Declaring variables at global scope so that they can be used througout the script 
-var about = $(".about span");
-var output = $("#howlong");
-var sun = $(".sun-selector");
-var cloudparts = $(".opencloud.cloud, .opencloud.cloud::after, .opencloud.cloud::before");
 
-// Prime everything.
 $(function(){
-	$(".cloudlayer .cloud").addClass("animate-cloudToLeft");
-	sun.click(geolocate);
-    $("a.info-open").click(function(){
-        $(".pane").addClass("full");
-    });
-    $("a.info-close").click(function(){
-        $(".pane").removeClass("full");
-    })
-});
+// Globals
+    var about = $(".about span");
+    var output = $("#howlong");
+    var sun = $(".sun-selector");
+    var cloudparts = $(".opencloud.cloud, .opencloud.cloud::after, .opencloud.cloud::before");
 
-// Grab geolocation data & pass the Position object
-// created by the geolocation API to the sunsetCalc function
-var geolocate = function(isfirst) {
-    about.animate({"opacity":"0"}, 400);
-    $("body").css("cursor", "wait");
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(sunsetCalc);
-	} else {
-		alert("Sorry! Geolocation is not supported by your browser. We will be adding zip code functionality soon.")
-	}
-}
+
+
+var initiate = function(){
+// Check if geolocation data was already grabbed & cached
+// If it was, use that cached data; if not, grab the data.
+    animationEffects.beforeGeo();
+    position.exists() ? sunsetCalc(position.localPosition) : position.geolocate();
+};
+
+var animationEffects = (function() {
+// Animation
+    // Private
+    function sunClicked() {
+        about.animate({"opacity":"0"}, 400);
+        $("body").css("cursor", "wait");
+    }
+    function showSun() {
+        $("body").css("cursor","auto");
+        $("#sunner").animate({opacity: 1});
+        output.hide();
+    }
+        // Public
+    return {
+        beforeGeo : sunClicked,
+        afterGeo : showSun
+    };
+}());
+
+var position = (function() {
+// Store latitude and longitude to prevent unneccesary geolocation lookups
+    // Private
+    var localPosition;
+
+    function exists(){
+        return this.localPosition!==undefined ? true : false;
+    }
+
+    function geolocate(){
+        //console.time("geolocate");
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(location) {
+                position.localPosition = location;
+
+                sunsetCalc(location);
+            });
+        } else {
+            alert("Sorry! Geolocation is not supported by your browser. We will be adding zip code functionality soon.");
+        }
+        //console.timeEnd("geolocate");
+    }
+    // Public
+    return {
+        exists: exists,
+        geolocate: geolocate,
+        localPosition: localPosition
+    };
+
+}());
+
+var times = (function(){
+    var today = new Date(),
+        tomorrow = new Date(),
+        yesterday = new Date(),
+        days = [today, tomorrow, yesterday];
+    yesterday.setDate(yesterday.getDate()-1);
+    tomorrow.setDate(tomorrow.getDate()+1);
+    
+    function registerSunTimes(position) {
+        for (var i = 0, max = days.length; i < max; i++){
+            days[i].at = SunCalc.getTimes(days[i], position.coords.latitude, position.coords.longitude);
+        }
+    }
+    function refreshTimes(){
+        times.today = new Date();
+        times.tomorrow = new Date();
+        times.yesterday = new Date();
+        times.yesterday.setDate(yesterday.getDate()-1);
+        times.tomorrow.setDate(tomorrow.getDate()+1);
+    }
+    return {
+        now: today,
+        today: today,
+        tomorrow: tomorrow,
+        yesterday: yesterday,
+        assign: registerSunTimes,
+        refresh: refreshTimes
+    }
+
+}());
 
 var sunsetCalc = function(position){
 
-    $("body").css("cursor","auto");
-    $("#sunner").animate({opacity: 1});
-    output.hide();
-
 	// pull info from the Position object created by
-	// the geolocation; run them through Sun Calc;
+	// the geolocation; run them through SunCalc;
 	// set up the variables we'll need later.
 
-	var latitude = position.coords.latitude;
-	var longitude = position.coords.longitude;
-    var now = new Date();
+    // Fire animation
+    animationEffects.afterGeo();
+    times.assign(position);
 
-    var now_times = SunCalc.getTimes(new Date(), latitude, longitude);
+    var difference = null, remainder = {};
+    var now = times.now;
 
-    var tomorrow = new Date();
-    var yesterday = new Date();
-    tomorrow.setDate(now.getDate()+1);
-    yesterday.setDate(now.getDate()-1);
-    var tomorrow_times = SunCalc.getTimes(tomorrow, latitude, longitude);
-    var yesterday_times = SunCalc.getTimes(yesterday, latitude, longitude);
-
-    var now_hours = now.getHours();
-
-    var difference = null;
-    var remainder = {};
-
-    if (now_hours == 0){
+    if (times.now.getHours() === 0){
         // N.B.: SunCalc parses hour 0 (aka midnight -> 1am) as part of the previous day
         remainder.isDay = false;
-        difference = tomorrow_times.dawn - now;
-        barGraph((tomorrow_times.dawn - now_times.dusk), (now - now_times.dusk), false);
+        difference = times.tomorrow.at.dawn - now;
+        barGraph((times.tomorrow.at.dawn - times.today.at.dusk), (now - times.today.at.dusk), false);
     } else {
-        if (now > now_times.dawn && now < now_times.dusk) {
+        if (now > times.today.at.dawn && now < times.today.at.dusk) {
             remainder.isDay = true;
-            difference = now_times.dusk - now;
-            barGraph((now_times.dusk - now_times.dawn), (now-now_times.dawn), true);
-        } else if (now > now_times.dusk && now > now_times.dawn) { // dusk --> midnight
+            difference = times.today.at.dusk - now;
+            barGraph((times.today.at.dusk - times.today.at.dawn), (now-times.today.at.dawn), true);
+        } else if (now > times.today.at.dusk && now > times.today.at.dawn) { // dusk --> midnight
             remainder.isDay = false;
-            difference = tomorrow_times.dawn - now;
-            barGraph((tomorrow_times.dawn - now_times.dusk), (now - now_times.dusk), false);
-        } else if (now_times.dawn > now) { // 1am --> dawn
+            difference = times.tomorrow.at.dawn - now;
+            barGraph((times.tomorrow.at.dawn - times.today.at.dusk), (now - times.today.at.dusk), false);
+        } else if (times.today.at.dawn > now) { // 1am --> dawn
             remainder.isDay = false;
-            difference = now_times.dawn - now;
-            barGraph((now_times.dawn - yesterday_times.dusk), (now - yesterday_times.dusk), false);
+            difference = times.today.at.dawn - now;
+            barGraph((times.today.at.dawn - times.yesterday.at.dusk), (now - times.yesterday.at.dusk), false);
         }
     }
 
@@ -124,7 +177,6 @@ var sunsetCalc = function(position){
 }
 
 var barGraph = function (whole, elapsed, isDay){
-
     var elapsedPercent = Math.floor(100*(elapsed/whole));
     var remainingPercent = 100-(Math.floor(100*(elapsed/whole)));
 
@@ -166,3 +218,16 @@ var barGraph = function (whole, elapsed, isDay){
     $('#sunmarker').css("left", elapsedPercent+"%");
     $(".bar").animate({"opacity":"1"}, 2000);
 }
+
+
+    $(".cloudlayer .cloud").addClass("animate-cloudToLeft");
+    sun.click(initiate);
+    $("a.info-open").click(function(){
+        $(".pane").addClass("full");
+    });
+    $("a.info-close").click(function(){
+        $(".pane").removeClass("full");
+    });
+
+
+});

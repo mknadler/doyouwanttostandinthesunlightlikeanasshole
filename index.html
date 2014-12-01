@@ -20,7 +20,7 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
         <meta property="og:description" content="How much sunlight do you have left today?"/>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="assets/stylesheets/css/master.css?1.21">
+        <link rel="stylesheet" href="assets/stylesheets/css/master.min.css?1.23">
         
         <!-- jquery + modernizr + fonts -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
@@ -35,9 +35,9 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
 <section class="pane">
     <div class="pane-content">
         <p>Using your latitude and longitude, How Much Sunlight tells you the difference between now and the nearest dawn or dusk.</p>
-        <p><a href="#" id="dawn-link">Dawn</a> is separate from sunrise, and <a href="#" id="dusk-link">dusk</a> is separate from sunset. At sunrise and sunset, the top edge of the sun is just barely visible over the horizon; at dawn and dusk, the sun is below the horizon, but there is enough light to see by.</p>
+        <p><a href="http://en.wikipedia.org/wiki/Dawn#Civil_dawn" id="dawn-link">Dawn</a> is separate from sunrise, and <a href="http://en.wikipedia.org/wiki/Dusk#Technical_definitions" id="dusk-link">dusk</a> is separate from sunset. At sunrise and sunset, the top edge of the sun is just barely visible over the horizon; at dawn and dusk, the sun is below the horizon, but there is enough light to see by.</p>
         <p>Please note that these calculations are approximate, and, while they are more or less accurate, should not be considered reliable for serious situations.</p>
-        <p>If you would like to view the source code, please visit our <a href="#" id="github-link"><span id="git">Git</span>Hub</a> repository.</p>
+        <p>If you would like to view the source code, please visit our <a href="https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole" id="github-link"><span id="git">Git</span>Hub</a> repository.</p>
         <a class="info-close button" href="#">
             <span class="button-words">go back</span>
             <span class="button-arrow">></span>
@@ -76,10 +76,6 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
             </p>
         </div>
     </div>
-    <!--
-    <div class="opencloud cloud">
-        <span>about</span>
-    </div>
 -->
 
     <!-- The sun / moon -->
@@ -97,15 +93,6 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
     </div>
 
     <!-- The bottom text -->
-    <!--
-    <div class="time-container">
-        <div class="time">
-            <p class="time-inner">
-                <p id="howlong"></p>
-            </p>
-        </div>
-    </div>
-    -->
     <div class="bottom-output">
         <a class="info-open button" href="#">
             <span class="button-words">learn more</span>
@@ -125,21 +112,11 @@ https://github.com/mknadler/doyouwanttostandinthesunlightlikeanasshole
         <p class="bar-words"></p>
      </div>
 
-<!--
-<div class="bargraph">
-    <div id="before-dawn"></div>
-    <div id="dawn-to-noon"></div>
-    <div id="noon-to-dusk"></div>
-    <div id="dusk"></div>
-    <div id="elapsed"></div>
-</div>
--->
-
 </div> <!--end wrapper -->
 
 <!-- suncalc (god bless it) + my JS -->
 <script src="assets/js/suncalc.min.js"></script>
-<script src="assets/js/app.js?1.21"></script>
+<script src="assets/js/app.js?1.23"></script>
 
 </body>
 </html>

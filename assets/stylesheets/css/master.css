@@ -85,70 +85,70 @@ input, select {
   vertical-align: middle; }
 
 body {
-  background: #a6cbcd; }
+  background: #A6CBCD; }
 
 body.day {
-  background: #fffce6; }
+  background: #FFFCE6; }
 
 html.moon body {
-  background: #261a38; }
+  background: #261A38; }
 
 html.moon span#about {
-  color: #261a38; }
+  color: #261A38; }
 html.moon .number {
-  color: #b298a6; }
+  color: #B298A6; }
 html.moon .word {
-  color: #a7ccce; }
+  color: #A7CCCE; }
 html.moon .word--outer {
-  color: #8e69bc; }
+  color: #8E69BC; }
 html.moon .plus {
-  color: #8e69bc; }
+  color: #8E69BC; }
 html.moon .bottom-words {
-  color: #261a38; }
+  color: #261A38; }
 html.moon .day .bottom-words {
-  color: #a7ccce; }
+  color: #A7CCCE; }
 html.moon .bar-words {
-  color: #261a38; }
+  color: #261A38; }
 html.moon .info-open.button {
-  background: #a7ccce; }
+  background: #A7CCCE; }
 html.moon .button-arrow {
-  color: #261a38; }
+  color: #261A38; }
 html.moon .button-words {
-  color: #261a38; }
+  color: #261A38; }
 html.moon .bar {
-  background-color: #a7ccce;
-  background-image: -webkit-linear-gradient(-315deg, #a7ccce 0%, #8e69bc 20%, #8e69bc 80%, #a7ccce 100%);
-  background-image: linear-gradient(45deg,#a7ccce 0%, #8e69bc 20%, #8e69bc 80%, #a7ccce 100%); }
+  background-color: #A7CCCE;
+  background-image: -webkit-linear-gradient(-315deg, #A7CCCE 0%, #8E69BC 20%, #8E69BC 80%, #A7CCCE 100%);
+  background-image: linear-gradient(45deg,#A7CCCE 0%, #8E69BC 20%, #8E69BC 80%, #A7CCCE 100%); }
 html.moon .bar span {
-  color: #261a38; }
+  color: #261A38; }
 html.moon .pane {
-  background: #261a38; }
+  background: #261A38; }
 html.moon .pane-content p {
-  color: #8e69bc; }
+  color: #8E69BC; }
 html.moon a#dawn-link {
-  color: #a7ccce; }
+  color: #A7CCCE; }
   html.moon a#dawn-link:hover {
-    color: #b298a6; }
+    color: #B298A6; }
   html.moon a#dawn-link:active {
-    color: #8e69bc; }
+    color: #8E69BC; }
 html.moon a#dusk-link {
-  color: #b298a6; }
+  color: #B298A6; }
   html.moon a#dusk-link:hover {
-    color: #a7ccce; }
+    color: #A7CCCE; }
   html.moon a#dusk-link:active {
-    color: #8e69bc; }
+    color: #8E69BC; }
 html.moon a#github-link {
-  color: #b298a6; }
+  color: #B298A6; }
   html.moon a#github-link:hover {
-    color: #a7ccce; }
+    color: #A7CCCE; }
   html.moon a#github-link:active {
-    color: #8e69bc; }
+    color: #8E69BC; }
     html.moon a#github-link:active #git {
-      color: #8e69bc; }
+      color: #8E69BC; }
   html.moon a#github-link #git {
-    color: #a7ccce; }
+    color: #A7CCCE; }
 html.moon .info-close.button {
-  background: #a7ccce; }
+  background: #A7CCCE; }
 
 /*
 $schemes: (
@@ -187,98 +187,82 @@ body {
 @-webkit-keyframes moveLeft {
   0% {
     right: -20%; }
-
   100% {
     right: 105%; } }
 @-moz-keyframes moveLeft {
   0% {
     right: -20%; }
-
   100% {
     right: 105%; } }
 @-o-keyframes moveLeft {
   0% {
     right: -20%; }
-
   100% {
     right: 105%; } }
 @keyframes moveLeft {
   0% {
     right: -20%; }
-
   100% {
     right: 105%; } }
 @-webkit-keyframes moveLeftsecond {
   0% {
     right: -40%; }
-
   100% {
     right: 105%; } }
 @-moz-keyframes moveLeftsecond {
   0% {
     right: -40%; }
-
   100% {
     right: 105%; } }
 @-o-keyframes moveLeftsecond {
   0% {
     right: -40%; }
-
   100% {
     right: 105%; } }
 @keyframes moveLeftsecond {
   0% {
     right: -40%; }
-
   100% {
     right: 105%; } }
 @media screen and (max-width: 600px) {
   @-webkit-keyframes moveLeftsecond {
     0% {
       right: -60%; }
-
     100% {
       right: 105%; } }
   @-moz-keyframes moveLeftsecond {
     0% {
       right: -60%; }
-
     100% {
       right: 105%; } }
   @-o-keyframes moveLeftsecond {
     0% {
       right: -60%; }
-
     100% {
       right: 105%; } }
   @keyframes moveLeftsecond {
     0% {
       right: -60%; }
-
     100% {
       right: 105%; } } }
 @-webkit-keyframes dash {
   from {
     stroke-dashoffset: 1200; }
-
   to {
     stroke-dashoffset: 0; } }
 @-moz-keyframes dash {
   from {
     stroke-dashoffset: 1200; }
-
   to {
     stroke-dashoffset: 0; } }
 @-o-keyframes dash {
   from {
     stroke-dashoffset: 1200; }
-
   to {
     stroke-dashoffset: 0; } }
 @keyframes dash {
   from {
     stroke-dashoffset: 1200; }
-
   to {
     stroke-dashoffset: 0; } }
 html {
@@ -307,7 +291,7 @@ body {
   position: absolute;
   top: 0;
   z-index: -100;
-  background: #fffce6;
+  background: #FFFCE6;
   opacity: 0;
   overflow-y: scroll; }
 
@@ -332,7 +316,7 @@ body {
       width: 46%;
       left: 30%; } }
   .pane-content p {
-    color: #b1ad8e; }
+    color: #B1AD8E; }
     @media screen and (max-width: 600px) {
       .pane-content p {
         font-size: 14px;
@@ -374,32 +358,32 @@ body {
           margin-top: 99px;
           margin-top: 9.9rem; } }
   .pane-content a#dawn-link {
-    color: #a6cbcd; }
+    color: #A6CBCD; }
     .pane-content a#dawn-link:hover {
-      color: #b298a6; }
+      color: #B298A6; }
     .pane-content a#dawn-link:active {
-      color: #b1ad8e; }
+      color: #B1AD8E; }
   .pane-content a#dusk-link {
-    color: #b298a6; }
+    color: #B298A6; }
     .pane-content a#dusk-link:hover {
-      color: #a6cbcd; }
+      color: #A6CBCD; }
     .pane-content a#dusk-link:active {
-      color: #b1ad8e; }
+      color: #B1AD8E; }
   .pane-content a#github-link {
-    color: #b298a6; }
+    color: #B298A6; }
     .pane-content a#github-link:hover {
-      color: #a6cbcd; }
+      color: #A6CBCD; }
     .pane-content a#github-link:active {
-      color: #b1ad8e; }
+      color: #B1AD8E; }
       .pane-content a#github-link:active #git {
-        color: #b1ad8e; }
+        color: #B1AD8E; }
     .pane-content a#github-link #git {
-      color: #a6cbcd; }
+      color: #A6CBCD; }
   .pane-content a {
     text-transform: none;
     text-decoration: none; }
   .pane-content .info-close.button {
-    background: #a6cbcd;
+    background: #A6CBCD;
     display: inline-block;
     box-sizing: border-box;
     font-family: "adelle-sans";
@@ -488,7 +472,7 @@ body {
 
 span#about {
   transition: color 5s ease, opacity 5s ease;
-  color: #fffce6;
+  color: #FFFCE6;
   opacity: 1;
   font-size: 28px;
   font-size: 2.8rem; }
@@ -502,17 +486,17 @@ span#about {
   .output p {
     border: none; }
   .output .number {
-    color: #b298a6; }
+    color: #B298A6; }
   .output .word {
-    color: #a6cbcd; }
+    color: #A6CBCD; }
   .output .plus {
-    color: #b1ad8e; }
+    color: #B1AD8E; }
   .output br {
     display: none; }
 
 .bottom-words {
   position: relative;
-  color: #fffce6;
+  color: #FFFCE6;
   font-family: "adelle-sans";
   font-size: 28px;
   font-size: 2.8rem; }
@@ -523,7 +507,7 @@ span#about {
     display: block; }
 
 .day .bottom-words {
-  color: #a6cbcd; }
+  color: #A6CBCD; }
 
 .bottom-output {
   width: 70%;
@@ -533,7 +517,7 @@ span#about {
 
 .bar-words {
   font-family: "adelle-sans";
-  color: #fffce6;
+  color: #FFFCE6;
   font-size: 16px;
   font-size: 1.6rem;
   font-style: italic;
@@ -541,7 +525,7 @@ span#about {
   top: 20%; }
 
 .info-open.button {
-  background: #b298a6;
+  background: #B298A6;
   display: inline-block;
   box-sizing: border-box;
   font-family: "adelle-sans"; }
@@ -555,10 +539,10 @@ span#about {
     padding: 1.4rem; }
 
 .button-arrow {
-  color: #fffce6; }
+  color: #FFFCE6; }
 
 .button-words {
-  color: #fffce6; }
+  color: #FFFCE6; }
 
 .bar {
   width: 100%;
@@ -567,11 +551,11 @@ span#about {
   bottom: 0;
   left: 0;
   opacity: 0;
-  background-color: #b298a6;
-  background-image: -webkit-linear-gradient(-315deg, #b298a6 0%, #a6cbcd 20%, #a6cbcd 80%, #b298a6 100%);
-  background-image: linear-gradient(45deg,#b298a6 0%, #a6cbcd 20%, #a6cbcd 80%, #b298a6 100%); }
+  background-color: #B298A6;
+  background-image: -webkit-linear-gradient(-315deg, #B298A6 0%, #A6CBCD 20%, #A6CBCD 80%, #B298A6 100%);
+  background-image: linear-gradient(45deg,#B298A6 0%, #A6CBCD 20%, #A6CBCD 80%, #B298A6 100%); }
   .bar span {
-    color: #fffce6;
+    color: #FFFCE6;
     font-family: "adelle-sans";
     font-style: italic;
     text-transform: uppercase;
@@ -714,13 +698,13 @@ svg circle:nth-child(6) {
   .moon svg circle:nth-child(5) {
     stroke-dasharray: 60, 210;
     stroke-dashoffset: 0;
-    stroke: #4ea7ff;
+    stroke: #4EA7FF;
     stroke-width: 0;
     -webkit-animation-iteration-count: 1; }
   .moon svg circle:nth-child(6) {
     stroke-dasharray: 200, 150;
     stroke-dashoffset: 0;
-    stroke: #4ea7ff;
+    stroke: #4EA7FF;
     stroke-width: 0;
     fill: none;
     -webkit-animation-iteration-count: 1; }
@@ -808,9 +792,9 @@ svg circle:nth-child(6) {
   .closecloud.cloud:after, .closecloud.cloud:before {
     background: #1b8eff; }
   .closecloud.cloud:hover {
-    background: #4ea7ff; }
+    background: #4EA7FF; }
     .closecloud.cloud:hover:after, .closecloud.cloud:hover:before {
-      background: #4ea7ff; }
+      background: #4EA7FF; }
   @media screen and (max-width: 600px) {
     .closecloud.cloud {
       top: 95%; } }
